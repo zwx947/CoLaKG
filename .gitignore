@@ -1,0 +1,43 @@
+# Python / optional native-extension caches (already tracked files stay tracked)
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+*.pyd
+*.so
+.rendered.*.cpp
+
+# Generated experiment outputs; retain the existing tracked semantic embeddings
+/logs/
+/code/runs/
+/code/checkpoints/
+/rec_code/runs/
+/rec_code/checkpoints/
+/experiments/runs/
+**/checkpoints/
+*.pth
+*.pth.tar
+*.ckpt
+*.log
+/data/**/s_pre_adj_mat.npz
+
+# Local caches, temporary downloads, and credentials
+.cache/
+/tmp/
+/temp/
+*.tmp
+*.partial
+.env
+.env.*
+!.env.example
+!.env.template
+.netrc
+.pypirc
+*.pem
+*.key
+id_rsa
+id_ed25519
+credentials*.json
+secrets*.json
+*.local.toml
+*.local.yaml
