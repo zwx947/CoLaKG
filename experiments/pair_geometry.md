@@ -1,5 +1,24 @@
 # 同类型表示几何辅助目标
 
+## 方法定义与结果入口
+
+本分支保存已经完成真实训练的正收益候选，不代表多种子完整测试稳定性或论文新颖性已经通过验证。完整研究过程见 [研究报告](research_study_v1.md)，固定2000轮六项对比及原始结果文件哈希见 [机器可读对比记录](research_records/pair_geometry_final_comparison.json)。
+
+保留原CoLaKG编码器、语义邻居、预测打分、BPR、Adam及原六项正则。在训练 minibatch 内，用传播后的用户表示与正例物品表示构造辅助目标。令归一化表示为 `u_i`、`p_i`，批大小为 `B`，实现对应：
+
+```text
+L_geometry = (1/B) * sum_i [
+  logsumexp({dot(u_i,u_j)/tau}_j concatenated with {dot(p_i,p_j)/tau}_j)
+  - dot(u_i,p_i)/tau
+]
+L_total = L_BPR + 0.05 * L_geometry + 0.0001 * L_original_regularization
+tau = 0.2
+```
+
+两个同类型相似度矩阵沿列拼接，每行一起计算logsumexp；包含对角元素及重复ID，未额外去重或屏蔽。辅助项取均值，不引入新可训练参数。辅助梯度参与原Adam更新，推理打分保持原CoLaKG方式。实现位于 `research_methods/pair_geometry.py`，通过独立启动脚本加载，没有改写 `rec_code/model.py`。
+
+该目标借鉴 [SGCL（RecSys2025）论文](https://arxiv.org/html/2507.13336v1)与[作者代码](https://github.com/DavidZWZ/SGCL)，本实验将其作为BPR辅助项，不能声称是新的损失函数或完整复现SGCL。
+
 分支 `codex/pair-geometry`，首轮执行提交 `8ba7eb3`。原CoLaKG编码器、原语义邻居、BPR、Adam和6项正则保留，辅助项改为SGCL（RecSys2025）式交互对齐及用户—用户、正例物品—物品的表示分散：归一化后拼接UU/II相似矩阵的logsumexp，减去对应UI余弦。使用数值稳定形式，温度0.2、辅助系数0.05沿用目录辅助对比，不做权重搜索。对角及重复ID按公开SGCL形式保留。本项目用辅助损失均值，官方原实现是独立求和损失；不宣称整体复现SGCL，也不把现有目标的迁移声称为论文创新。
 
 相较目录负例，它不直接排斥所有未知物品；这是有依据的目标对照，而不是已经证实的有效原因。后续需消融才能归因。

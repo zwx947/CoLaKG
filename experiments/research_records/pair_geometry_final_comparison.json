@@ -1,0 +1,83 @@
+{
+  "description": "LastFM原始CoLaKG与几何辅助候选：固定2000轮、seed2020终点比较",
+  "method": "pair_geometry",
+  "seed": 2020,
+  "epochs": 2000,
+  "updates_per_run": 114000,
+  "baseline_record_commit": "b98629e3e32e3917d8dc1f0013cfc2e33e0eb8e9",
+  "candidate_training_commit": "06c2035bd5261fba7a0442ab6110727ce6d1f605",
+  "baseline_run_id": "lastfm-baseline-20261022-233837-33d715d8",
+  "candidate_run_id": "final-pair_geometry-s2020-20261023-171221-e3dfce",
+  "source_files": {
+    "baseline_result": {
+      "filename": "result.json",
+      "sha256": "05fb34cba7208246d24aa37f4c0fd957a3607a13b437887f971ee877d1af092b"
+    },
+    "candidate_result": {
+      "repository_path": "experiments/research_records/final_pair_geometry_s2020.json",
+      "sha256": "7b504ef4464be7f826d8c03dc5519b81e7fc13758951f7962fcbb88f4f0ed24f",
+      "matches_original_run_json": true
+    },
+    "frozen_protocol": {
+      "repository_path": "experiments/frozen_pair_geometry_v1.json",
+      "sha256": "bdec8d4fc67eb0ef5861baabe9d066089dbc1d3db2b5503074874170a9f3ce10"
+    }
+  },
+  "relative_gain_formula": "(candidate / baseline - 1) * 100; percent, not percentage points",
+  "metrics": [
+    {
+      "metric": "Precision@10",
+      "baseline": 0.20075309306078534,
+      "candidate": 0.2024744486282948,
+      "absolute_difference": 0.0017213555675094638,
+      "relative_gain_percent": 0.8574490889603714
+    },
+    {
+      "metric": "Precision@20",
+      "baseline": 0.13897256589564283,
+      "candidate": 0.14150080688542227,
+      "absolute_difference": 0.00252824098977944,
+      "relative_gain_percent": 1.8192374685504165
+    },
+    {
+      "metric": "Recall@10",
+      "baseline": 0.2725281129127283,
+      "candidate": 0.273525192755962,
+      "absolute_difference": 0.0009970798432336614,
+      "relative_gain_percent": 0.36586311502950775
+    },
+    {
+      "metric": "Recall@20",
+      "baseline": 0.3749863384478769,
+      "candidate": 0.3819007915161762,
+      "absolute_difference": 0.006914453068299298,
+      "relative_gain_percent": 1.8439213270859955
+    },
+    {
+      "metric": "NDCG@10",
+      "baseline": 0.2922360183141114,
+      "candidate": 0.295851535988988,
+      "absolute_difference": 0.0036155176748766116,
+      "relative_gain_percent": 1.2371909854693053
+    },
+    {
+      "metric": "NDCG@20",
+      "baseline": 0.34284221999548964,
+      "candidate": 0.3490868273326837,
+      "absolute_difference": 0.006244607337194064,
+      "relative_gain_percent": 1.8214230841453016
+    }
+  ],
+  "candidate_resources": {
+    "elapsed_seconds": 7439.9146339,
+    "peak_allocated_bytes": 339271680,
+    "peak_reserved_bytes": 360710144
+  },
+  "limitations": [
+    "完整测试为单种子2020，不代表多种子均值或统计显著性。",
+    "主要比较固定2000轮终点；历史基线测试峰值不能混作同一比较口径。",
+    "三种子开发确认使用从原train划出的验证集、200轮预算，不能替代完整预算测试。",
+    "公开语义资产历史来源不完整；相同资产用于对照，未宣称资产层面完全无泄漏。",
+    "目标来自已有SGCL并改为BPR辅助项，没有已经确认的新颖性结论。"
+  ]
+}
