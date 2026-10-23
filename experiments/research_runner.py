@@ -117,6 +117,8 @@ def run_experiment(args, run, state):
     source_paths = [*REC.glob("*.py"), REC/"train_lastfm.sh", Path(__file__), Path(__file__).with_name("lastfm_one_minibatch.py")]
     if args.method != "baseline":
         source_paths.append(Path(module.__file__))
+    # Python 3.8 can retain a relative __file__ when launched by relative path.
+    source_paths = [path.resolve() for path in source_paths]
     state.update({"config": dict(world.config), "seed":args.seed,"epochs":args.epochs,
                   "method":args.method,"phase":args.phase,"protocol":protocol,
                   "git_commit":git("rev-parse","HEAD"),"git_branch":git("branch","--show-current"),
