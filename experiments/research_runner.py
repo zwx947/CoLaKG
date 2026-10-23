@@ -202,7 +202,7 @@ def main():
     parser.add_argument("--frozen-config",type=Path)
     args=parser.parse_args()
     assert Path(sys.executable).resolve()==PYTHON.resolve()
-    assert git("branch","--show-current").startswith("research/")
+    assert git("branch","--show-current").startswith(("research/", "codex/"))
     os.environ["CUDA_VISIBLE_DEVICES"]="0";sys.dont_write_bytecode=True
     run=RESEARCH/(args.phase+"-"+args.method+"-s"+str(args.seed)+"-"+datetime.now(CHINA).strftime("%Y%m%d-%H%M%S")+"-"+uuid.uuid4().hex[:6])
     run.mkdir(parents=True,exist_ok=False)
