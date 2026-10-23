@@ -125,6 +125,7 @@ def run_experiment(args, run, state):
                   "versions":{p:importlib.metadata.version(p) for p in ["torch","numpy","scipy","scikit-learn"]},
                   "cuda":torch.version.cuda,"gpu":torch.cuda.get_device_name(0),
                   "fit_pairs":dataset.trainDataSize,"evaluation_pairs":dataset.testDataSize,
+                  "method_config":getattr(model,"method_config",{}),
                   "parameters":sum(p.numel() for p in model.parameters()),"checkpoint_loading":False,
                   "evaluation_label":"validation" if args.phase=="development" else "original_test_once_after_freeze"})
     atomic_json(run/"manifest.json",state)
@@ -180,7 +181,7 @@ def run_experiment(args, run, state):
         print("PROGRESS epoch={}/{} method={} loss={:.8f} seconds={:.2f}".format(epoch+1,args.epochs,args.method,row["loss"],train_seconds),flush=True)
     expected=math.ceil(dataset.trainDataSize/world.config["bpr_batch_size"])*args.epochs
     assert expected==actual_updates
-    score=statistics.mean(row["metrics"]["ndcg"][1] for row in evaluations[-3:])
+    score=statistics.mean(row["metrics"]["ndcg"][1] for row in evaluations[-3:]) if args.phase=="development" else None
     result={**state,**status,"status":"completed","success":True,"evaluation_count":len(evaluations),
             "selection_score_last_three_ndcg20":score,"final_metrics":evaluations[-1]["metrics"],
             "source_unchanged":all(digest(p)==state["source_sha256"][str(p.relative_to(ROOT))] for p in source_paths),
