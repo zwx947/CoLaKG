@@ -84,6 +84,7 @@ def run_experiment(args, run, state):
     procedure = importlib.import_module("Procedure")
     assert torch.cuda.is_available() and not utils.sample_ext
     protocol = prepare_validation(np)
+    frozen = None
     if args.phase == "development":
         data_path = PROTOCOL
     else:
@@ -91,7 +92,10 @@ def run_experiment(args, run, state):
             raise RuntimeError("Final testing requires an independently frozen config file")
         frozen = json.loads(args.frozen_config.read_text(encoding="utf-8"))
         assert frozen["method"] == args.method and frozen["epochs"] == args.epochs
+        assert frozen["seed"] == args.seed and frozen["config"] == dict(world.config)
         assert frozen["selection_used_original_test"] is False
+        for name, value in frozen["original_asset_sha256"].items():
+            assert digest(ROOT/name) == value
         data_path = ROOT / "data" / "lastfm"
     utils.set_seed(args.seed); random.seed(args.seed)
     # Loader writes graph caches only in this run, never into input data.
@@ -114,22 +118,31 @@ def run_experiment(args, run, state):
     model = constructor(world.config, dataset, neighbours, item, user).to(world.device)
     dataloader.sp.load_npz, dataloader.sp.save_npz = original_npz_load, original_npz_save
     bpr = utils.BPRLoss(model, world.config)
-    source_paths = [*REC.glob("*.py"), REC/"train_lastfm.sh", Path(__file__), Path(__file__).with_name("lastfm_one_minibatch.py")]
+    source_paths = [*REC.glob("*.py"), REC/"train_lastfm.sh", Path(__file__), Path(__file__).with_name("lastfm_one_minibatch.py"), Path(__file__).with_name("lastfm_windows.py")]
     if args.method != "baseline":
         source_paths.append(Path(module.__file__))
     # Python 3.8 can retain a relative __file__ when launched by relative path.
     source_paths = [path.resolve() for path in source_paths]
+    if frozen is not None:
+        assert frozen["method_config"] == getattr(model,"method_config",{})
+        assert frozen["source_sha256"] == {str(p.relative_to(ROOT)):digest(p) for p in source_paths}
+        atomic_json(run/"frozen-config.json",frozen)
+    input_paths=[data_path/"train.txt",data_path/"test.txt",*semantic_paths,
+                 ROOT/"data/lastfm/user_map.txt",ROOT/"data/lastfm/item_map.txt"]
+    if args.frozen_config:
+        input_paths.append(args.frozen_config.resolve())
     state.update({"config": dict(world.config), "seed":args.seed,"epochs":args.epochs,
                   "method":args.method,"phase":args.phase,"protocol":protocol,
                   "git_commit":git("rev-parse","HEAD"),"git_branch":git("branch","--show-current"),
                   "source_sha256":{str(p.relative_to(ROOT)):digest(p) for p in source_paths},
-                  "input_sha256":{str(p):digest(p) for p in [data_path/"train.txt",data_path/"test.txt",*semantic_paths]},
-                  "versions":{p:importlib.metadata.version(p) for p in ["torch","numpy","scipy","scikit-learn"]},
+                  "input_sha256":{str(p):digest(p) for p in input_paths},
+                  "versions":{p:importlib.metadata.version(p) for p in ["torch","numpy","pandas","scipy","scikit-learn","tensorboardX","tqdm"]},
                   "cuda":torch.version.cuda,"gpu":torch.cuda.get_device_name(0),
                   "fit_pairs":dataset.trainDataSize,"evaluation_pairs":dataset.testDataSize,
                   "method_config":getattr(model,"method_config",{}),
                   "parameters":sum(p.numel() for p in model.parameters()),"checkpoint_loading":False,
-                  "evaluation_label":"validation" if args.phase=="development" else "original_test_once_after_freeze"})
+                  "evaluation_label":"validation" if args.phase=="development" else "original_test_once_after_freeze",
+                  "frozen_protocol":frozen})
     atomic_json(run/"manifest.json",state)
     source_copy=run/"source";source_copy.mkdir()
     for path in source_paths:
