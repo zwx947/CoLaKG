@@ -1,0 +1,122 @@
+{
+  "method": "pair_geometry",
+  "epochs": 2000,
+  "seed": 2020,
+  "created_at": "2026-10-23T17:03:07.277062",
+  "selection_used_original_test": false,
+  "initialization": "fresh random; never load development checkpoint",
+  "final_test_protocol": "one original Procedure.Test after exactly 2000 trained epochs; no test-based early stopping or selection",
+  "config": {
+    "bpr_batch_size": 1024,
+    "latent_dim_rec": 64,
+    "lightGCN_n_layers": 3,
+    "use_drop_edge": 0,
+    "keep_prob": 1.0,
+    "A_n_fold": 100,
+    "test_u_batch_size": 100,
+    "multicore": 0,
+    "lr": 0.001,
+    "decay": 0.0001,
+    "pretrain": 0,
+    "A_split": false,
+    "bigdata": false,
+    "neighbor_k": 10,
+    "dropout_i": 0.6,
+    "dropout_u": 0.2,
+    "dropout_n": 0.6
+  },
+  "method_config": {
+    "geometry": "logsumexp(user-user AND positive-item-positive-item) minus paired cosine",
+    "temperature": 0.2,
+    "auxiliary_weight": 0.05,
+    "encoder_and_prediction": "original CoLaKG unchanged",
+    "diagonal_and_duplicates": "included, as in public SGCL form",
+    "normalization": "mean auxiliary loss, not official standalone summed loss",
+    "attribution": "SGCL RecSys2025, DavidZWZ/SGCL; adapted as BPR auxiliary"
+  },
+  "source_sha256": {
+    "rec_code\\dataloader.py": "91f4ee2a51d61a92fbf4ab9c07d482a6a58d01365f235b81a414b679fcf0854b",
+    "rec_code\\main.py": "eddb9f017c9167b14249a830b822f7737b737725e5f347bf61566d8c4afc4bf1",
+    "rec_code\\model.py": "8a23736aff55c6a8e4f755748e5ccc66e830e90c9633e6b9e5f495e9cb6e67e2",
+    "rec_code\\parse.py": "baca82a1aa7fba6831e6ec0e98a69a1cadd5e5725f65e7c58db939c9820b551d",
+    "rec_code\\Procedure.py": "dcb80e24ac758312991d4b95718e08fd6c33cb6ccd881029b1d29a3b5ff9d85c",
+    "rec_code\\register.py": "d9f0ba8997ccb9bc9da205f587b1167301c768390c1e39ff486e1fac7b99bde5",
+    "rec_code\\utils.py": "994e36a720ce9edc27e813b1a8be206d499d88d4596bc4e6a1db11b570e6e770",
+    "rec_code\\world.py": "686ce52e7feba1f5a28467c2398ad9b499d54380f4d7dc95fca21513a462cfd6",
+    "rec_code\\train_lastfm.sh": "e58e34cafd5a7fcad5ac2c66d816d5363b5abd7fd91c56cf149e320139f1c647",
+    "experiments\\research_runner.py": "98cd468413c3591f6b8674ef460e666fa9683a7db520207f624ad674f2703a37",
+    "experiments\\lastfm_one_minibatch.py": "3e425085050714819b0a407accaa051b326dce1643169dfc6c250ba2031ef482",
+    "experiments\\lastfm_windows.py": "612a88ee760aaa289db5a58e64bd1b9f3ab8a549f9848dcb527e83ef69cb0d51",
+    "experiments\\research_methods\\pair_geometry.py": "fd9b45a1a8f00e822052da9725c05e9b68a0bd8b5c7acf515d730c4c5745d79c"
+  },
+  "original_asset_sha256": {
+    "data\\lastfm\\train.txt": "643619d1afd8d9bfbe536d0b9369b160bee932f69fdb59329132fcc07ade65a1",
+    "data\\lastfm\\test.txt": "0857015b628798e95e195daed6f9b289ab3bf888519e1c6445525de867f0008e",
+    "data\\lastfm\\user_map.txt": "117912910435eda93b7960b8312810fa882e25b063ed28f5bd7aa3c1193b8b44",
+    "data\\lastfm\\item_map.txt": "2a4c30a522c2f8115b69cc729b3d6e5553be48edf85c230dadf080c73e4de69a",
+    "data\\lastfm\\lastfm_embeddings_simcse_kg.pt": "8d826d30a8bac4a25fcde9e98dc4f7116da6fda954f05dae764de86634e64fab",
+    "data\\lastfm\\lastfm_embeddings_simcse_kg_user.pt": "8ce9c4d833a9f17937478c76ccdff0ea1214b5b347e4ff2232562a63dc593215"
+  },
+  "development_evidence": {
+    "seeds": [
+      2020,
+      2021,
+      2022
+    ],
+    "mean_score": 0.263154317744723,
+    "mean_paired_relative_gain": 0.017968834424629748,
+    "all_paired_gains_positive": true,
+    "runs": [
+      {
+        "method": "pair_geometry",
+        "seed": 2020,
+        "score": 0.26465052907165054,
+        "final_recall20": 0.33644816721739795,
+        "final_ndcg20": 0.2650995454365121,
+        "loss": 0.39878138770227844,
+        "seconds": 564.9903565999999,
+        "peak_allocated_mib": 322.89404296875,
+        "git_commit": "8ba7eb3b497e97f88ff6e3f3024e912492a77325",
+        "run": "D:\\CoLaKGResearch\\development-pair_geometry-s2020-20261023-163010-ca0314",
+        "result_sha256": "405a7479759d997a2366042487edaf0e3719cbd91d831ddc965fba158c603b03",
+        "relative_gain": 0.019202339956197356
+      },
+      {
+        "method": "pair_geometry",
+        "seed": 2021,
+        "score": 0.2622457380387528,
+        "final_recall20": 0.3368663387894156,
+        "final_ndcg20": 0.26424140539287305,
+        "loss": 0.4014536731916925,
+        "seconds": 561.9063189,
+        "peak_allocated_mib": 322.89404296875,
+        "git_commit": "0551e820779487df209940475bd4f75a029c1989",
+        "run": "D:\\CoLaKGResearch\\development-pair_geometry-s2021-20261023-164127-05b902",
+        "result_sha256": "8993aecf429dd4ddcbfb6e8e7ebdabaf3b228619f0e2f4703ec70987122fa3c6",
+        "relative_gain": 0.018073413632348156
+      },
+      {
+        "method": "pair_geometry",
+        "seed": 2022,
+        "score": 0.2625666861237656,
+        "final_recall20": 0.3307813980890904,
+        "final_ndcg20": 0.26060721979263585,
+        "loss": 0.4026609302862831,
+        "seconds": 541.1580469,
+        "peak_allocated_mib": 322.89404296875,
+        "git_commit": "0551e820779487df209940475bd4f75a029c1989",
+        "run": "D:\\CoLaKGResearch\\development-pair_geometry-s2022-20261023-165102-e97abd",
+        "result_sha256": "e710442154fb1635410c883657197670db0eb38f7d1c065cbc4acb538212b56f",
+        "relative_gain": 0.016630749685343726
+      }
+    ]
+  },
+  "frozen_before_original_test": true,
+  "code_commit_before_freeze": "c8581e9bbc2c0cc2cb7e145245fa3e739a63c5a6",
+  "baseline_preserved_commit": "b98629e3e32e3917d8dc1f0013cfc2e33e0eb8e9",
+  "limitations": [
+    "development user semantic assets have incomplete history provenance",
+    "three short-budget development seeds; final test is one fixed seed, not a five-run average",
+    "SGCL-derived objective transfer, no novelty claim"
+  ]
+}

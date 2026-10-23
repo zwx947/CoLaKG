@@ -18,6 +18,8 @@ __pycache__/
 *.pth
 *.pth.tar
 *.ckpt
+**/checkpoint.pt
+**/graph-cache.npz
 *.log
 /data/**/s_pre_adj_mat.npz
 
