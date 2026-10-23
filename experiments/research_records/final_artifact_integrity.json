@@ -1,0 +1,18 @@
+{
+  "purpose": "post-training snapshot integrity only, no ranking or training",
+  "run_id": "final-pair_geometry-s2020-20261023-171221-e3dfce",
+  "epoch": 2000,
+  "git_commit": "06c2035bd5261fba7a0442ab6110727ce6d1f605",
+  "adam_steps": [
+    114000
+  ],
+  "all_model_tensors_finite": true,
+  "rng_keys": [
+    "cpu",
+    "cuda",
+    "numpy",
+    "python"
+  ],
+  "checkpoint_bytes": 5712477,
+  "checkpoint_sha256": "6b4850ec12cbe22d1c79ef97cc07991b9bdb14b6e34fb3f9df4814b5c316147e"
+}

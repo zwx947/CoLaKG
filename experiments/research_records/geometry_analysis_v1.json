@@ -1,0 +1,64 @@
+{
+  "purpose": "post-hoc representation analysis, no training or original-test ranking",
+  "device": "cpu",
+  "seed": 2020,
+  "trained_epochs": 200,
+  "fit_pairs": 46953,
+  "rows": [
+    {
+      "method": "baseline",
+      "run": "D:\\CoLaKGResearch\\development-baseline-s2020-20261023-143751-b77fd2",
+      "checkpoint_sha256": "d24a1d67065968e2c62ea60b042f2c5447aecfd246b431ea7b522fc382da510b",
+      "users": {
+        "mean_off_diagonal_cosine": 0.14374806449313526,
+        "uniformity_log_mean_exp_negative_two_distance_squared": -2.7406805251503887,
+        "centered_covariance_effective_rank": 15.113914753938568,
+        "mean_raw_norm": 2.9809932708740234
+      },
+      "items": {
+        "mean_off_diagonal_cosine": 0.07381560112862907,
+        "uniformity_log_mean_exp_negative_two_distance_squared": -3.003415467399115,
+        "centered_covariance_effective_rank": 15.959331469057213,
+        "mean_raw_norm": 2.2809553146362305
+      },
+      "fit_positive_mean_cosine": 0.6838300824165344
+    },
+    {
+      "method": "pair_geometry",
+      "run": "D:\\CoLaKGResearch\\development-pair_geometry-s2020-20261023-163010-ca0314",
+      "checkpoint_sha256": "0cea2bf1294d1682513a4de6b962ac9c23124816613a7e24d27e5ccf22ec6b63",
+      "users": {
+        "mean_off_diagonal_cosine": 0.09514430882320439,
+        "uniformity_log_mean_exp_negative_two_distance_squared": -2.8630912717426567,
+        "centered_covariance_effective_rank": 14.445383549371371,
+        "mean_raw_norm": 2.911942481994629
+      },
+      "items": {
+        "mean_off_diagonal_cosine": 0.04071507876624634,
+        "uniformity_log_mean_exp_negative_two_distance_squared": -3.11263608267669,
+        "centered_covariance_effective_rank": 15.860278159381231,
+        "mean_raw_norm": 2.2300567626953125
+      },
+      "fit_positive_mean_cosine": 0.6706445217132568
+    },
+    {
+      "method": "pair_alignment_only",
+      "run": "D:\\CoLaKGResearch\\development-pair_alignment_only-s2020-20261023-170135-7e54cf",
+      "checkpoint_sha256": "25b277d635c589998e9512d82912377ac6b109189074205cd5aecf5021881680",
+      "users": {
+        "mean_off_diagonal_cosine": 0.311018222342502,
+        "uniformity_log_mean_exp_negative_two_distance_squared": -2.082071164145431,
+        "centered_covariance_effective_rank": 9.480211799249945,
+        "mean_raw_norm": 2.9456567764282227
+      },
+      "items": {
+        "mean_off_diagonal_cosine": 0.24666540753047156,
+        "uniformity_log_mean_exp_negative_two_distance_squared": -2.3565026824058535,
+        "centered_covariance_effective_rank": 10.656383350230428,
+        "mean_raw_norm": 2.353184938430786
+      },
+      "fit_positive_mean_cosine": 0.7965347170829773
+    }
+  ],
+  "interpretation_limit": "one seed; association and controlled component ablation, not universal causality"
+}

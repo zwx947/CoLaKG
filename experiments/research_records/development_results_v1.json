@@ -1,0 +1,243 @@
+{
+  "completed_runs": 13,
+  "completed_epochs": 2600,
+  "updates": 119600,
+  "training_loop_seconds": 7474.7758548,
+  "runs": [
+    {
+      "method": "baseline",
+      "seed": 2020,
+      "score": 0.2596643656479679,
+      "final_recall20": 0.32817631086861854,
+      "final_ndcg20": 0.2589287191162085,
+      "loss": 0.09721917982982553,
+      "seconds": 532.4459664999999,
+      "peak_allocated_mib": 302.61279296875,
+      "git_commit": "e0e2a84299e233adb9efa67e374d5dbb10ed4773",
+      "run": "D:\\CoLaKGResearch\\development-baseline-s2020-20261023-143751-b77fd2",
+      "result_sha256": "38352ba816dd4a1f909c767e1711dce934fe5cb1a04768e67cef9f5cdc20c2c5",
+      "relative_gain": 0.0
+    },
+    {
+      "method": "baseline",
+      "seed": 2021,
+      "score": 0.2575902037389381,
+      "final_recall20": 0.32795986065216837,
+      "final_ndcg20": 0.2583859732710153,
+      "loss": 0.10114209094773167,
+      "seconds": 755.3197147,
+      "peak_allocated_mib": 302.61279296875,
+      "git_commit": "937eeec28d5e7c51386b8ef91c3111891bd2b1a5",
+      "run": "D:\\CoLaKGResearch\\development-baseline-s2021-20261023-154647-e919f6",
+      "result_sha256": "25a52145055618b92154b99a6cf80a1e8a9e466a079a2a87c5f023907628cde2",
+      "relative_gain": 0.0
+    },
+    {
+      "method": "baseline",
+      "seed": 2022,
+      "score": 0.25827143847953876,
+      "final_recall20": 0.32467852660160357,
+      "final_ndcg20": 0.2583615112667385,
+      "loss": 0.10209457479093385,
+      "seconds": 537.6529049000001,
+      "peak_allocated_mib": 302.61279296875,
+      "git_commit": "937eeec28d5e7c51386b8ef91c3111891bd2b1a5",
+      "run": "D:\\CoLaKGResearch\\development-baseline-s2022-20261023-160930-d8bbf1",
+      "result_sha256": "fcecca324be9a6df9b4f6ce3597fa06aa9662c1bf8955143c255aa2162982143",
+      "relative_gain": 0.0
+    },
+    {
+      "method": "catalog_contrastive",
+      "seed": 2020,
+      "score": 0.2610548299261936,
+      "final_recall20": 0.3331380158303236,
+      "final_ndcg20": 0.2607223133549114,
+      "loss": 0.3846989319376323,
+      "seconds": 589.2411248000001,
+      "peak_allocated_mib": 333.45068359375,
+      "git_commit": "83b8fe7f7f990f72a4c55d32e1159077ef81fc6e",
+      "run": "D:\\CoLaKGResearch\\development-catalog_contrastive-s2020-20261023-144836-682e3a",
+      "result_sha256": "47f64031812b44b65685680b8a53b69f20795303ecdfc09e1a8b55ce80b7de0b",
+      "relative_gain": 0.0053548521174859864
+    },
+    {
+      "method": "catalog_contrastive",
+      "seed": 2021,
+      "score": 0.25908860610817414,
+      "final_recall20": 0.33070006916160766,
+      "final_ndcg20": 0.2582897396107354,
+      "loss": 0.3877653324085733,
+      "seconds": 579.3831661999999,
+      "peak_allocated_mib": 333.45068359375,
+      "git_commit": "937eeec28d5e7c51386b8ef91c3111891bd2b1a5",
+      "run": "D:\\CoLaKGResearch\\development-catalog_contrastive-s2021-20261023-155937-18180d",
+      "result_sha256": "a0eaab430bbbaeb2c2a3cc8e244c189088074bec46090028753e5ac912923f30",
+      "relative_gain": 0.00581700059818524
+    },
+    {
+      "method": "catalog_contrastive",
+      "seed": 2022,
+      "score": 0.2592706130749346,
+      "final_recall20": 0.3278516355439433,
+      "final_ndcg20": 0.2562190074371352,
+      "loss": 0.3882142046223516,
+      "seconds": 582.8007952,
+      "peak_allocated_mib": 333.45068359375,
+      "git_commit": "937eeec28d5e7c51386b8ef91c3111891bd2b1a5",
+      "run": "D:\\CoLaKGResearch\\development-catalog_contrastive-s2022-20261023-161840-345b05",
+      "result_sha256": "5032c0126f4dcfc64a1214c27e45f2bc7b38a152b664c4a4680d43c31ec9c06a",
+      "relative_gain": 0.0038686995405998736
+    },
+    {
+      "method": "consensus_residual",
+      "seed": 2020,
+      "score": 0.2583495816801758,
+      "final_recall20": 0.3274878967186659,
+      "final_ndcg20": 0.2556656550756662,
+      "loss": 0.044877295665766884,
+      "seconds": 614.2088729000001,
+      "peak_allocated_mib": 305.91748046875,
+      "git_commit": "f83ce1a34c1de0444d87d21123a33772fed651ce",
+      "run": "D:\\CoLaKGResearch\\development-consensus_residual-s2020-20261023-150801-a87614",
+      "result_sha256": "297a4e4ead1bf4f04bba71212a7008945c89a6e5101be133f8a8514889e6430c",
+      "relative_gain": -0.0050633977616112436
+    },
+    {
+      "method": "semantic_graph_decoder",
+      "seed": 2020,
+      "score": 0.2553591885466939,
+      "final_recall20": 0.3268936192013115,
+      "final_ndcg20": 0.2547889153537388,
+      "loss": 0.03590021395812864,
+      "seconds": 466.08615460000004,
+      "peak_allocated_mib": 56.02783203125,
+      "git_commit": "2b05db31bcca5a53d7111ec87a1eb72fd088b377",
+      "run": "D:\\CoLaKGResearch\\development-semantic_graph_decoder-s2020-20261023-152430-9076ed",
+      "result_sha256": "e8aa703c100c936f27ae0752654c6bb79ccaf817759a328f760f44afebc531a1",
+      "relative_gain": -0.016579776322141138
+    },
+    {
+      "method": "aligned_catalog",
+      "seed": 2020,
+      "score": 0.24163836895951926,
+      "final_recall20": 0.3215137426675888,
+      "final_ndcg20": 0.24318067838885782,
+      "loss": 5.372650809909986,
+      "seconds": 642.9038842,
+      "peak_allocated_mib": 332.158203125,
+      "git_commit": "88dac9f5c885588a1b014a9ad084f99bdb27675d",
+      "run": "D:\\CoLaKGResearch\\development-aligned_catalog-s2020-20261023-153337-21f0b2",
+      "result_sha256": "d92cd59f04cddb878f236bd99a12745bddc1a88a6c06e88695dbbfcdca41c43f",
+      "relative_gain": -0.06942037134539614
+    },
+    {
+      "method": "pair_geometry",
+      "seed": 2020,
+      "score": 0.26465052907165054,
+      "final_recall20": 0.33644816721739795,
+      "final_ndcg20": 0.2650995454365121,
+      "loss": 0.39878138770227844,
+      "seconds": 564.9903565999999,
+      "peak_allocated_mib": 322.89404296875,
+      "git_commit": "8ba7eb3b497e97f88ff6e3f3024e912492a77325",
+      "run": "D:\\CoLaKGResearch\\development-pair_geometry-s2020-20261023-163010-ca0314",
+      "result_sha256": "405a7479759d997a2366042487edaf0e3719cbd91d831ddc965fba158c603b03",
+      "relative_gain": 0.019202339956197356
+    },
+    {
+      "method": "pair_geometry",
+      "seed": 2021,
+      "score": 0.2622457380387528,
+      "final_recall20": 0.3368663387894156,
+      "final_ndcg20": 0.26424140539287305,
+      "loss": 0.4014536731916925,
+      "seconds": 561.9063189,
+      "peak_allocated_mib": 322.89404296875,
+      "git_commit": "0551e820779487df209940475bd4f75a029c1989",
+      "run": "D:\\CoLaKGResearch\\development-pair_geometry-s2021-20261023-164127-05b902",
+      "result_sha256": "8993aecf429dd4ddcbfb6e8e7ebdabaf3b228619f0e2f4703ec70987122fa3c6",
+      "relative_gain": 0.018073413632348156
+    },
+    {
+      "method": "pair_geometry",
+      "seed": 2022,
+      "score": 0.2625666861237656,
+      "final_recall20": 0.3307813980890904,
+      "final_ndcg20": 0.26060721979263585,
+      "loss": 0.4026609302862831,
+      "seconds": 541.1580469,
+      "peak_allocated_mib": 322.89404296875,
+      "git_commit": "0551e820779487df209940475bd4f75a029c1989",
+      "run": "D:\\CoLaKGResearch\\development-pair_geometry-s2022-20261023-165102-e97abd",
+      "result_sha256": "e710442154fb1635410c883657197670db0eb38f7d1c065cbc4acb538212b56f",
+      "relative_gain": 0.016630749685343726
+    },
+    {
+      "method": "pair_alignment_only",
+      "seed": 2020,
+      "score": 0.2324832390216636,
+      "final_recall20": 0.2961775404083096,
+      "final_ndcg20": 0.23124351338285776,
+      "loss": -0.07865650295887304,
+      "seconds": 506.6785484,
+      "peak_allocated_mib": 302.61279296875,
+      "git_commit": "c8581e9bbc2c0cc2cb7e145245fa3e739a63c5a6",
+      "run": "D:\\CoLaKGResearch\\development-pair_alignment_only-s2020-20261023-170135-7e54cf",
+      "result_sha256": "5367bce9c6f82b148c384e7235e2afa05c81ab61f28aeeb849abfe9a77c61983",
+      "relative_gain": -0.10467792358984795
+    }
+  ],
+  "selection_used_original_test": false,
+  "catalog_contrastive": {
+    "seeds": [
+      2020,
+      2021,
+      2022
+    ],
+    "mean_score": 0.2598046830364341,
+    "mean_paired_relative_gain": 0.005013517418757034,
+    "all_paired_gains_positive": true
+  },
+  "consensus_residual": {
+    "seeds": [
+      2020
+    ],
+    "mean_score": 0.2583495816801758,
+    "mean_paired_relative_gain": -0.0050633977616112436,
+    "all_paired_gains_positive": false
+  },
+  "semantic_graph_decoder": {
+    "seeds": [
+      2020
+    ],
+    "mean_score": 0.2553591885466939,
+    "mean_paired_relative_gain": -0.016579776322141138,
+    "all_paired_gains_positive": false
+  },
+  "aligned_catalog": {
+    "seeds": [
+      2020
+    ],
+    "mean_score": 0.24163836895951926,
+    "mean_paired_relative_gain": -0.06942037134539614,
+    "all_paired_gains_positive": false
+  },
+  "pair_geometry": {
+    "seeds": [
+      2020,
+      2021,
+      2022
+    ],
+    "mean_score": 0.263154317744723,
+    "mean_paired_relative_gain": 0.017968834424629748,
+    "all_paired_gains_positive": true
+  },
+  "pair_alignment_only": {
+    "seeds": [
+      2020
+    ],
+    "mean_score": 0.2324832390216636,
+    "mean_paired_relative_gain": -0.10467792358984795,
+    "all_paired_gains_positive": false
+  }
+}

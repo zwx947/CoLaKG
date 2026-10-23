@@ -1,0 +1,27 @@
+[
+  {
+    "file": "alpharec.py",
+    "sha256": "a35448c70c24f11f43db7e0051f7a0b7ca689c8a00f80d958ceba381fe447501",
+    "bytes": 7346
+  },
+  {
+    "file": "cclrec_main.py",
+    "sha256": "d01ff1b1aea8751922774db4990ed2dad440dfba6d4016471ad9fc03dd201738",
+    "bytes": 21506
+  },
+  {
+    "file": "cclrec_model.py",
+    "sha256": "7a3181d9e007b8fbcb32f894f94f83bac665fb6c59fcbd393b593dde3368e1c0",
+    "bytes": 5940
+  },
+  {
+    "file": "lightccf_losses.py",
+    "sha256": "0717e2cc8f37cac9f3e947647f6c043ed0839b207dc3f4fa3311aebcded86da3",
+    "bytes": 1639
+  },
+  {
+    "file": "sgcl.py",
+    "sha256": "c79c27e79ff4711e31991614ec10fb85577bcd1f40c87173afa94d887fb85ef9",
+    "bytes": 2202
+  }
+]
