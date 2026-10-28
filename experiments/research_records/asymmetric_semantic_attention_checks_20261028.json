@@ -1,0 +1,19 @@
+{
+  "checks_passed": 4,
+  "command": "D:\\CondaEnvs\\CoLaKG\\python.exe -B experiments/check_asymmetric_semantic_attention.py -v",
+  "checks": [
+    "Q=K,b=0 recovers complete shared forward/loss and split-gradient identity in train and eval",
+    "independent center/neighbor roles can produce unequal reverse-edge scores",
+    "new query projection receives finite gradients and updates; Adam/RNG recovered next step exactly matches",
+    "ranking and inherited/new diagnostics preserve RNG"
+  ],
+  "ast_parse": true,
+  "baseline_reuse_audit": true,
+  "parent_source_unchanged": true,
+  "evidence_scope": "CPU mechanism/optimization correctness; not GPU or recommendation gains",
+  "source_sha256": {
+    "experiments/asymmetric_semantic_attention_2000.py": "4670af3704b301ed8b66601ec91cdd3082f0d10e3a9892bdc557d29fae3bfbff",
+    "experiments/research_methods/asymmetric_semantic_attention.py": "2cd214e43f9bac6c06878b982f03c5dc94bc0be9604866ecbc9913109abbd23d",
+    "experiments/check_asymmetric_semantic_attention.py": "c5a6a2bb45d4949ddf0b3c47b43e64dda19d73fcc59201a6538ce1150bf295b7"
+  }
+}
