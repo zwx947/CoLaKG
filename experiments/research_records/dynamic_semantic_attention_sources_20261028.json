@@ -1,0 +1,17 @@
+{
+  "paper": "How Attentive are Graph Attention Networks?",
+  "venue": "ICLR 2022",
+  "paper_url": "https://arxiv.org/html/2105.14491v3",
+  "author_repository": "https://github.com/tech-srl/how_attentive_are_gats",
+  "commit": "6f6d29089603c2f51651bd083dcd44f206b1100e",
+  "cache": "D:\\CoLaKGSetup\\dynamic-attention-source-20261028-210143",
+  "file": "gatv2_conv_PyG.py",
+  "source_url": "https://raw.githubusercontent.com/tech-srl/how_attentive_are_gats/6f6d29089603c2f51651bd083dcd44f206b1100e/gatv2_conv_PyG.py",
+  "sha256": "a793cc703eabdcbcbd300e3dc8d1f959c7461ab067e662ec7b2a35fca9bc150f",
+  "read_scope": "Paper sections 3.2-3.3; complete author PyG convolution source, especially share_weights and message",
+  "public_source_default": "share_weights=False, bias=True, add_self_loops=True",
+  "chosen_adaptation": "share_weights=True, bias=False, no extra self loops; score only, CoLaKG values retained",
+  "scope": "Known dynamic-attention operator applied to semantic retrieval; no claim of original attention or 2025-2026 publication",
+  "baseline_source": "original CoLaKG model.py attention block and inherited BPR/getEmbedding",
+  "bridge_check": "reinsert original static formula in copied computer and compare original full forward/loss/gradients"
+}

@@ -1,0 +1,19 @@
+{
+  "checks_passed": 4,
+  "command": "D:\\CondaEnvs\\CoLaKG\\python.exe -B experiments/check_dynamic_semantic_attention.py -v",
+  "checks": [
+    "shared-neighbor order can reverse when the query changes, unlike static attention",
+    "original-score bridge preserves full train/eval forward, BPR, six-vector L2 and common gradients",
+    "active scorer/encoder parameters have finite gradients, scorer updates; complete Adam/CPU RNG next-step recovery matches",
+    "ranking cache equals direct ranking; counterfactual/entropy diagnostics consume no RNG"
+  ],
+  "baseline_source_input_reuse_audit": true,
+  "ast_parse_passed": true,
+  "test_setup_note": "Initial CPU world stub lacked default config; fixed before tests ran. No training was started by fixture tests.",
+  "scope": "CPU correctness evidence, not GPU performance or recommendation improvement evidence",
+  "source_sha256": {
+    "experiments/research_methods/dynamic_semantic_attention.py": "c7de1896803eddef2bfa2bd91e7f3986b3c7139d6432cb01ea29d37ea72c9473",
+    "experiments/check_dynamic_semantic_attention.py": "0054dd5b94a1058ae3c5176ed2af3b25b5f9faf1d89a3850ed39a21d0575157b",
+    "experiments/dynamic_semantic_attention_2000.py": "462b6a5ba71f46cd590d10c1742ff4f7e1080b47ef98618e65d749a53029d4a8"
+  }
+}
