@@ -1,0 +1,297 @@
+{
+  "run_directory": "D:\\CoLaKGResearch\\dynamic-semantic-attention-v1\\direct-test-dynamic_semantic_attention-s2020-20261028-211059-bfa969",
+  "pid": 122196,
+  "success": true,
+  "git_commit": "a1e2693b580c50bc16b8e092d91de5131b9dd083",
+  "git_branch": "codex/b-dynamic-semantic-attention",
+  "gpu_guard": {
+    "ignored_verified_codex_ui": [],
+    "blocking": []
+  },
+  "method": "dynamic_semantic_attention",
+  "phase": "direct_test_exploration",
+  "seed": 2020,
+  "epochs": 2000,
+  "config": {
+    "bpr_batch_size": 1024,
+    "latent_dim_rec": 64,
+    "lightGCN_n_layers": 3,
+    "use_drop_edge": 0,
+    "keep_prob": 1.0,
+    "A_n_fold": 100,
+    "test_u_batch_size": 100,
+    "multicore": 0,
+    "lr": 0.001,
+    "decay": 0.0001,
+    "pretrain": 0,
+    "A_split": false,
+    "bigdata": false,
+    "neighbor_k": 10,
+    "dropout_i": 0.6,
+    "dropout_u": 0.2,
+    "dropout_n": 0.6
+  },
+  "method_config": {
+    "name": "dynamic_semantic_attention",
+    "A_enabled": false,
+    "original_logits": "LeakyReLU([s_neighbor W || s_center W] a64)",
+    "new_logits": "a32^T LeakyReLU(s_neighbor W + s_center W)",
+    "shared_query_key_projection": true,
+    "attention_hidden_dim": 32,
+    "heads": 1,
+    "bias": false,
+    "negative_slope": 0.2,
+    "scorer_initializer": "original Xavier gain 1.414, fresh recommendation parameters",
+    "neighbors": "unchanged sklearn cosine argsort[:,1:11], fixed original top10, no added self loops",
+    "attention_dropout": 0.6,
+    "values": "unchanged original fused item ID/semantic vectors; no new value projection",
+    "input_fusion": "original user AND item Linear/ELU/dropout, 1:1 mean with ID",
+    "propagation": "unchanged C value aggregation and 3-layer original UI LightGCN with layer mean",
+    "objective": "unchanged BPR and original six-vector L2; same optimizer and negative sampler",
+    "legacy_unused_parameters": [
+      "W_u",
+      "a_u"
+    ],
+    "parameter_delta_vs_original": -32,
+    "source": "How Attentive are Graph Attention Networks?, ICLR2022; author GATv2Conv share_weights option",
+    "source_commit": "6f6d29089603c2f51651bd083dcd44f206b1100e",
+    "adaptation": "semantic pair scorer only; original recommendation values/graph/inputs retained; no PyG/DGL installation",
+    "scope": "known dynamic attention applied to this semantic retrieval module; not a claim of new attention"
+  },
+  "versions": {
+    "torch": "1.13.0",
+    "numpy": "1.24.4",
+    "pandas": "2.0.3",
+    "scipy": "1.10.1",
+    "scikit-learn": "1.3.2",
+    "tensorboardX": "2.6.2.2",
+    "tqdm": "4.66.4"
+  },
+  "cuda": "11.7",
+  "gpu": "NVIDIA GeForce MX450",
+  "parameters": 495840,
+  "training_interactions": 57786,
+  "test_interactions": 13508,
+  "checkpoint_loading": false,
+  "initialization": "fresh random recommendation parameters, fixed released semantic assets",
+  "evaluation_protocol": "completed epochs 0,5,...,1995 before training, plus 2000 final",
+  "evaluation_data": "original LastFM test, explicitly used for research feedback",
+  "test_selection_limitation": "User-authorized direct test feedback for exploration. Repeated test selection is not an independent validation-selected generalization conclusion.",
+  "reference": {
+    "baseline_result_sha256": "05fb34cba7208246d24aa37f4c0fd957a3607a13b437887f971ee877d1af092b",
+    "baseline_evaluations_sha256": "013a07cf22d6f64f23f5d35b74562925c1dc3890178aee0f7965da051247c0cd",
+    "baseline_directory": "D:\\CoLaKGExperiments\\lastfm-baseline-20261022-233837-33d715d8",
+    "original_protocol_best": {
+      "kind": "original_protocol",
+      "completed_epochs": 1920,
+      "original_epoch_argument": 1920,
+      "original_display_epoch": 1921,
+      "metrics": {
+        "precision": [
+          0.200161377084454,
+          0.13894566971490052
+        ],
+        "recall": [
+          0.2706169898477591,
+          0.37686757686757677
+        ],
+        "ndcg": [
+          0.29540403476387855,
+          0.3473341593547369
+        ]
+      },
+      "seconds": 1.1370015999999907,
+      "at": "2026-10-23T08:40:45.308628+08:00"
+    },
+    "best_including_final": {
+      "kind": "original_protocol",
+      "completed_epochs": 1920,
+      "original_epoch_argument": 1920,
+      "original_display_epoch": 1921,
+      "metrics": {
+        "precision": [
+          0.200161377084454,
+          0.13894566971490052
+        ],
+        "recall": [
+          0.2706169898477591,
+          0.37686757686757677
+        ],
+        "ndcg": [
+          0.29540403476387855,
+          0.3473341593547369
+        ]
+      },
+      "seconds": 1.1370015999999907,
+      "at": "2026-10-23T08:40:45.308628+08:00"
+    },
+    "final": {
+      "kind": "final_2000_epochs",
+      "completed_epochs": 2000,
+      "original_epoch_argument": 2000,
+      "original_display_epoch": null,
+      "metrics": {
+        "precision": [
+          0.20075309306078534,
+          0.13897256589564283
+        ],
+        "recall": [
+          0.2725281129127283,
+          0.3749863384478769
+        ],
+        "ndcg": [
+          0.2922360183141114,
+          0.34284221999548964
+        ]
+      },
+      "seconds": 0.7923758999999677,
+      "at": "2026-10-23T08:45:41.195410+08:00"
+    },
+    "original_rec_sources_unchanged": true,
+    "checkpoint_loaded": false
+  },
+  "source_sha256": {
+    "rec_code\\dataloader.py": "91f4ee2a51d61a92fbf4ab9c07d482a6a58d01365f235b81a414b679fcf0854b",
+    "rec_code\\main.py": "eddb9f017c9167b14249a830b822f7737b737725e5f347bf61566d8c4afc4bf1",
+    "rec_code\\model.py": "8a23736aff55c6a8e4f755748e5ccc66e830e90c9633e6b9e5f495e9cb6e67e2",
+    "rec_code\\parse.py": "baca82a1aa7fba6831e6ec0e98a69a1cadd5e5725f65e7c58db939c9820b551d",
+    "rec_code\\Procedure.py": "dcb80e24ac758312991d4b95718e08fd6c33cb6ccd881029b1d29a3b5ff9d85c",
+    "rec_code\\register.py": "d9f0ba8997ccb9bc9da205f587b1167301c768390c1e39ff486e1fac7b99bde5",
+    "rec_code\\utils.py": "994e36a720ce9edc27e813b1a8be206d499d88d4596bc4e6a1db11b570e6e770",
+    "rec_code\\world.py": "686ce52e7feba1f5a28467c2398ad9b499d54380f4d7dc95fca21513a462cfd6",
+    "rec_code\\train_lastfm.sh": "e58e34cafd5a7fcad5ac2c66d816d5363b5abd7fd91c56cf149e320139f1c647",
+    "experiments\\dynamic_semantic_attention_2000.py": "462b6a5ba71f46cd590d10c1742ff4f7e1080b47ef98618e65d749a53029d4a8",
+    "experiments\\research_methods\\dynamic_semantic_attention.py": "c7de1896803eddef2bfa2bd91e7f3986b3c7139d6432cb01ea29d37ea72c9473",
+    "AGENTS.md": "6481841f014273a93daa87d61f9c4ae993b989969ddd2c912ed2d73800dbe05a",
+    "experiments\\dynamic_semantic_attention_protocol.md": "c441a83dee65bf0a3f316a2282a07789d5181dcaeee6452587163d89d5525402",
+    "experiments\\lastfm_one_minibatch.py": "3e425085050714819b0a407accaa051b326dce1643169dfc6c250ba2031ef482",
+    "experiments\\lastfm_windows.py": "612a88ee760aaa289db5a58e64bd1b9f3ab8a549f9848dcb527e83ef69cb0d51",
+    "experiments\\experiment_io.py": "02ab051d80f4d874a7e75d4cc68127c0310a4acbc5fd853335c4721e6090884d",
+    "experiments\\research_gpu_guard.py": "b9b28ef076877a0c202c01cd9a386e57bd1bcebc1ca23fce59e8291ced777799",
+    "experiments\\check_dynamic_semantic_attention.py": "0054dd5b94a1058ae3c5176ed2af3b25b5f9faf1d89a3850ed39a21d0575157b",
+    "experiments\\research_records\\dynamic_semantic_attention_sources_20261028.json": "e4c42a7a2d45c67d815c890a3286ad339e85f2ebabdbfda413660809a229966d"
+  },
+  "input_sha256": {
+    "D:\\GitHub\\colakg\\CoLaKG\\data\\lastfm\\train.txt": "643619d1afd8d9bfbe536d0b9369b160bee932f69fdb59329132fcc07ade65a1",
+    "D:\\GitHub\\colakg\\CoLaKG\\data\\lastfm\\test.txt": "0857015b628798e95e195daed6f9b289ab3bf888519e1c6445525de867f0008e",
+    "D:\\GitHub\\colakg\\CoLaKG\\data\\lastfm\\lastfm_embeddings_simcse_kg.pt": "8d826d30a8bac4a25fcde9e98dc4f7116da6fda954f05dae764de86634e64fab",
+    "D:\\GitHub\\colakg\\CoLaKG\\data\\lastfm\\lastfm_embeddings_simcse_kg_user.pt": "8ce9c4d833a9f17937478c76ccdff0ea1214b5b347e4ff2232562a63dc593215",
+    "D:\\GitHub\\colakg\\CoLaKG\\data\\lastfm\\user_map.txt": "117912910435eda93b7960b8312810fa882e25b063ed28f5bd7aa3c1193b8b44",
+    "D:\\GitHub\\colakg\\CoLaKG\\data\\lastfm\\item_map.txt": "2a4c30a522c2f8115b69cc729b3d6e5553be48edf85c230dadf080c73e4de69a"
+  },
+  "status": "completed",
+  "completed_epochs": 2000,
+  "updates": 114000,
+  "latest": {
+    "completed_epochs": 2000,
+    "updates": 114000,
+    "loss": 0.055171716696860496,
+    "training_seconds": 3.5045658999997613,
+    "sampling_seconds": 1.4530301000004329,
+    "training_after_sampling_seconds": 2.0515357999993284,
+    "loss_components": {
+      "bpr": 0.027408060764795857,
+      "six_vector_regularizer": 277.6365672329016
+    }
+  },
+  "elapsed_seconds": 7311.4087981,
+  "peak_allocated_bytes": 201311744,
+  "peak_reserved_bytes": 232783872,
+  "evaluation_count": 401,
+  "best_observed_original_protocol": {
+    "completed_epochs": 1645,
+    "kind": "original_protocol",
+    "metrics": {
+      "precision": [
+        0.200484131253362,
+        0.14055944055944056
+      ],
+      "recall": [
+        0.2701659451659451,
+        0.3794037159421774
+      ],
+      "ndcg": [
+        0.29366224883214487,
+        0.3471898326667511
+      ]
+    },
+    "seconds": 0.5511789000001954,
+    "diagnostics": {
+      "changed_neighbor_order_fraction_on_cyclic_query_replacement": 0.18236757814884186,
+      "changed_top1_fraction_on_cyclic_query_replacement": 0.07643085718154907,
+      "normalized_attention_entropy": 0.9717899560928345,
+      "mean_max_attention_weight": 0.1676829308271408,
+      "full_catalog_sigmoid_exact_one_fraction_including_known_positives": 1.9122773368172476e-07,
+      "full_catalog_logit_min": -12.016319274902344,
+      "full_catalog_logit_max": 16.67066192626953,
+      "interpretation": "query dependence and numerical diagnostics only; no method selection or test-label use inside the encoder"
+    },
+    "checkpoint_sha256": "2eec226169dbbdcc7efcb47dfdcdf5e5a6a0b1c056fcf4ec75e836ae2763ad48"
+  },
+  "best_including_final": {
+    "completed_epochs": 1645,
+    "kind": "original_protocol",
+    "metrics": {
+      "precision": [
+        0.200484131253362,
+        0.14055944055944056
+      ],
+      "recall": [
+        0.2701659451659451,
+        0.3794037159421774
+      ],
+      "ndcg": [
+        0.29366224883214487,
+        0.3471898326667511
+      ]
+    },
+    "seconds": 0.5511789000001954,
+    "diagnostics": {
+      "changed_neighbor_order_fraction_on_cyclic_query_replacement": 0.18236757814884186,
+      "changed_top1_fraction_on_cyclic_query_replacement": 0.07643085718154907,
+      "normalized_attention_entropy": 0.9717899560928345,
+      "mean_max_attention_weight": 0.1676829308271408,
+      "full_catalog_sigmoid_exact_one_fraction_including_known_positives": 1.9122773368172476e-07,
+      "full_catalog_logit_min": -12.016319274902344,
+      "full_catalog_logit_max": 16.67066192626953,
+      "interpretation": "query dependence and numerical diagnostics only; no method selection or test-label use inside the encoder"
+    },
+    "checkpoint_sha256": "3fbc6e2c3d87d5aaff737faa8ebf5dae86dc1d679f684b401d37f979b32b7755"
+  },
+  "final_metrics": {
+    "precision": [
+      0.19930069930069932,
+      0.13856912318450781
+    ],
+    "recall": [
+      0.26980220634066787,
+      0.37410687602995296
+    ],
+    "ndcg": [
+      0.29161327831363715,
+      0.34291543069095
+    ]
+  },
+  "final_checkpoint_sha256": "1ac6dcaa11d696bf852498695c17f7eff069b9b8ac76ea5b226a8aa121250afd",
+  "final_diagnostics": {
+    "changed_neighbor_order_fraction_on_cyclic_query_replacement": 0.3270529508590698,
+    "changed_top1_fraction_on_cyclic_query_replacement": 0.10238179564476013,
+    "normalized_attention_entropy": 0.9635475277900696,
+    "mean_max_attention_weight": 0.1787375956773758,
+    "full_catalog_sigmoid_exact_one_fraction_including_known_positives": 7.075426146223816e-06,
+    "full_catalog_logit_min": -10.769573211669922,
+    "full_catalog_logit_max": 18.894235610961914,
+    "interpretation": "query dependence and numerical diagnostics only; no method selection or test-label use inside the encoder"
+  },
+  "timing_breakdown": {
+    "training_including_sampling_seconds": 7003.52328250001,
+    "sampling_seconds": 2778.062457899995,
+    "training_after_sampling_seconds": 4225.460824600014,
+    "evaluation_seconds": 261.2858596000041,
+    "checkpoint_seconds": 14.814286099998341
+  },
+  "relative_gain_best_protocol": -0.0004155269042754872,
+  "relative_gain_best_including_final": -0.0004155269042754872,
+  "source_unchanged": true,
+  "input_unchanged": true
+}
