@@ -1,0 +1,776 @@
+{
+  "scope": "Existing logs only. No checkpoint loading, inference, training, new seeds or model selection.",
+  "metric_rule": "Primary results remain original-protocol NDCG@20-selected checkpoints; all other metrics come from the same point.",
+  "descriptive_peak_note": "Independent Recall peaks and fixed windows are supplementary post-hoc diagnostics, not a replacement selection rule.",
+  "statistical_note": "Adjacent epochs share data and training trajectory; windows and win counts are not independent samples or a significance test.",
+  "test_user_count": 1859,
+  "source_directories": {
+    "baseline": "D:\\CoLaKGExperiments\\lastfm-baseline-20261022-233837-33d715d8",
+    "shared": "D:\\CoLaKGResearch\\dynamic-semantic-attention-v1\\direct-test-dynamic_semantic_attention-s2020-20261028-211059-bfa969",
+    "asymmetric": "D:\\CoLaKGResearch\\asymmetric-semantic-attention-v1\\direct-test-asymmetric_semantic_attention-s2020-20261028-233455-8d6c5a"
+  },
+  "input_sha256": {
+    "D:\\GitHub\\colakg\\CoLaKG\\data\\lastfm\\test.txt": "0857015b628798e95e195daed6f9b289ab3bf888519e1c6445525de867f0008e",
+    "D:\\CoLaKGExperiments\\lastfm-baseline-20261022-233837-33d715d8\\training-history.json": "f0fc3652dece5ecd30041768fedbd21eaedf5c26452ba5e7be0236b820c861b2",
+    "D:\\CoLaKGResearch\\dynamic-semantic-attention-v1\\direct-test-dynamic_semantic_attention-s2020-20261028-211059-bfa969\\history.json": "2c0178e1d26814fe6c75cf7a4530231c3dbef5c755c99d22410a00ce33195810",
+    "D:\\CoLaKGResearch\\asymmetric-semantic-attention-v1\\direct-test-asymmetric_semantic_attention-s2020-20261028-233455-8d6c5a\\history.json": "a1ec0badb4c8052cd301192d41937e23a5fd9153dcd38ceffb11f7998ecba496",
+    "D:\\CoLaKGExperiments\\lastfm-baseline-20261022-233837-33d715d8\\evaluations.json": "013a07cf22d6f64f23f5d35b74562925c1dc3890178aee0f7965da051247c0cd",
+    "D:\\CoLaKGResearch\\dynamic-semantic-attention-v1\\direct-test-dynamic_semantic_attention-s2020-20261028-211059-bfa969\\evaluations.json": "cc532a6856262d74cac21589f0b54025270dc265ac12385a4f69c9e02aa9f69a",
+    "D:\\CoLaKGResearch\\asymmetric-semantic-attention-v1\\direct-test-asymmetric_semantic_attention-s2020-20261028-233455-8d6c5a\\evaluations.json": "365ce3a776c105dd6b7621e06a33dcf69efb2a5788b271b8b2155962a86675dc",
+    "D:\\CoLaKGExperiments\\lastfm-baseline-20261022-233837-33d715d8\\result.json": "05fb34cba7208246d24aa37f4c0fd957a3607a13b437887f971ee877d1af092b",
+    "D:\\CoLaKGResearch\\dynamic-semantic-attention-v1\\direct-test-dynamic_semantic_attention-s2020-20261028-211059-bfa969\\result.json": "14710455b22a6b0b53e5ddc6221aea7a6180ce1381530d7d56dcfd28a0e2861c",
+    "D:\\CoLaKGResearch\\asymmetric-semantic-attention-v1\\direct-test-asymmetric_semantic_attention-s2020-20261028-233455-8d6c5a\\result.json": "367b6f2adb09b36ba89d192233538ed87f37b89108d45a34c49e67c1400fe072"
+  },
+  "NDCG_selected_points": {
+    "baseline": {
+      "kind": "original_protocol",
+      "completed_epochs": 1920,
+      "original_epoch_argument": 1920,
+      "original_display_epoch": 1921,
+      "metrics": {
+        "precision": [
+          0.200161377084454,
+          0.13894566971490052
+        ],
+        "recall": [
+          0.2706169898477591,
+          0.37686757686757677
+        ],
+        "ndcg": [
+          0.29540403476387855,
+          0.3473341593547369
+        ]
+      },
+      "seconds": 1.1370015999999907,
+      "at": "2026-10-23T08:40:45.308628+08:00"
+    },
+    "shared": {
+      "completed_epochs": 1645,
+      "kind": "original_protocol",
+      "metrics": {
+        "precision": [
+          0.200484131253362,
+          0.14055944055944056
+        ],
+        "recall": [
+          0.2701659451659451,
+          0.3794037159421774
+        ],
+        "ndcg": [
+          0.29366224883214487,
+          0.3471898326667511
+        ]
+      },
+      "seconds": 0.5511789000001954,
+      "diagnostics": {
+        "changed_neighbor_order_fraction_on_cyclic_query_replacement": 0.18236757814884186,
+        "changed_top1_fraction_on_cyclic_query_replacement": 0.07643085718154907,
+        "normalized_attention_entropy": 0.9717899560928345,
+        "mean_max_attention_weight": 0.1676829308271408,
+        "full_catalog_sigmoid_exact_one_fraction_including_known_positives": 1.9122773368172476e-07,
+        "full_catalog_logit_min": -12.016319274902344,
+        "full_catalog_logit_max": 16.67066192626953,
+        "interpretation": "query dependence and numerical diagnostics only; no method selection or test-label use inside the encoder"
+      }
+    },
+    "asymmetric": {
+      "completed_epochs": 1650,
+      "kind": "original_protocol",
+      "metrics": {
+        "precision": [
+          0.20199031737493275,
+          0.14142011834319526
+        ],
+        "recall": [
+          0.27320692128384433,
+          0.3811092753400446
+        ],
+        "ndcg": [
+          0.2944771146247997,
+          0.3476490190228204
+        ]
+      },
+      "seconds": 0.8189939000003505,
+      "diagnostics": {
+        "changed_neighbor_order_fraction_on_cyclic_query_replacement": 0.06647706776857376,
+        "changed_top1_fraction_on_cyclic_query_replacement": 0.009598293341696262,
+        "normalized_attention_entropy": 0.9807971119880676,
+        "mean_max_attention_weight": 0.15498904883861542,
+        "full_catalog_sigmoid_exact_one_fraction_including_known_positives": 0.0,
+        "full_catalog_logit_min": -11.384486198425293,
+        "full_catalog_logit_max": 16.48358154296875,
+        "interpretation": "query dependence and numerical diagnostics only; no method selection or test-label use inside the encoder",
+        "mean_absolute_forward_reverse_edge_logit_difference": 0.33146408200263977,
+        "query_key_projection_cosine": 0.028205739334225655,
+        "attention_bias_l2": 0.462803453207016
+      }
+    }
+  },
+  "relative_percent_at_NDCG_selected_points": {
+    "precision": [
+      0.913732867508732,
+      1.780874951606637
+    ],
+    "recall": [
+      0.957046871869438,
+      1.1255143007322888
+    ],
+    "ndcg": [
+      -0.3137804599790739,
+      0.09065036064073162
+    ]
+  },
+  "independent_recall_peaks_descriptive_only": {
+    "baseline": {
+      "kind": "original_protocol",
+      "completed_epochs": 1650,
+      "original_epoch_argument": 1650,
+      "original_display_epoch": 1651,
+      "metrics": {
+        "precision": [
+          0.20252824098977942,
+          0.1412856374394836
+        ],
+        "recall": [
+          0.27372904872904874,
+          0.38090968860199637
+        ],
+        "ndcg": [
+          0.29396749608581707,
+          0.3467383276459757
+        ]
+      },
+      "seconds": 0.8745386999999027,
+      "at": "2026-10-23T01:22:34.321021+08:00"
+    },
+    "shared": {
+      "completed_epochs": 1770,
+      "kind": "original_protocol",
+      "metrics": {
+        "precision": [
+          0.20150618612157076,
+          0.14096288327057557
+        ],
+        "recall": [
+          0.27279045740584207,
+          0.3800253165637781
+        ],
+        "ndcg": [
+          0.2927308457238289,
+          0.3454909296277644
+        ]
+      },
+      "seconds": 0.5901992999997674,
+      "diagnostics": {
+        "changed_neighbor_order_fraction_on_cyclic_query_replacement": 0.24777816236019135,
+        "changed_top1_fraction_on_cyclic_query_replacement": 0.08318521082401276,
+        "normalized_attention_entropy": 0.9694458246231079,
+        "mean_max_attention_weight": 0.17063502967357635,
+        "full_catalog_sigmoid_exact_one_fraction_including_known_positives": 1.9122773368172476e-07,
+        "full_catalog_logit_min": -12.554636001586914,
+        "full_catalog_logit_max": 16.846406936645508,
+        "interpretation": "query dependence and numerical diagnostics only; no method selection or test-label use inside the encoder"
+      }
+    },
+    "asymmetric": {
+      "completed_epochs": 1650,
+      "kind": "original_protocol",
+      "metrics": {
+        "precision": [
+          0.20199031737493275,
+          0.14142011834319526
+        ],
+        "recall": [
+          0.27320692128384433,
+          0.3811092753400446
+        ],
+        "ndcg": [
+          0.2944771146247997,
+          0.3476490190228204
+        ]
+      },
+      "seconds": 0.8189939000003505,
+      "diagnostics": {
+        "changed_neighbor_order_fraction_on_cyclic_query_replacement": 0.06647706776857376,
+        "changed_top1_fraction_on_cyclic_query_replacement": 0.009598293341696262,
+        "normalized_attention_entropy": 0.9807971119880676,
+        "mean_max_attention_weight": 0.15498904883861542,
+        "full_catalog_sigmoid_exact_one_fraction_including_known_positives": 0.0,
+        "full_catalog_logit_min": -11.384486198425293,
+        "full_catalog_logit_max": 16.48358154296875,
+        "interpretation": "query dependence and numerical diagnostics only; no method selection or test-label use inside the encoder",
+        "mean_absolute_forward_reverse_edge_logit_difference": 0.33146408200263977,
+        "query_key_projection_cosine": 0.028205739334225655,
+        "attention_bias_l2": 0.462803453207016
+      }
+    }
+  },
+  "relative_percent_independent_recall_peaks": 0.05239739077804728,
+  "same_epoch_1650_descriptive_only": {
+    "baseline": {
+      "kind": "original_protocol",
+      "completed_epochs": 1650,
+      "original_epoch_argument": 1650,
+      "original_display_epoch": 1651,
+      "metrics": {
+        "precision": [
+          0.20252824098977942,
+          0.1412856374394836
+        ],
+        "recall": [
+          0.27372904872904874,
+          0.38090968860199637
+        ],
+        "ndcg": [
+          0.29396749608581707,
+          0.3467383276459757
+        ]
+      },
+      "seconds": 0.8745386999999027,
+      "at": "2026-10-23T01:22:34.321021+08:00"
+    },
+    "shared": {
+      "completed_epochs": 1650,
+      "kind": "original_protocol",
+      "metrics": {
+        "precision": [
+          0.2020979020979021,
+          0.14080150618612158
+        ],
+        "recall": [
+          0.2730613403690327,
+          0.37955762186531417
+        ],
+        "ndcg": [
+          0.2940765746818602,
+          0.34648168179049804
+        ]
+      },
+      "seconds": 0.556254699999954,
+      "diagnostics": {
+        "changed_neighbor_order_fraction_on_cyclic_query_replacement": 0.2026306390762329,
+        "changed_top1_fraction_on_cyclic_query_replacement": 0.07927479594945908,
+        "normalized_attention_entropy": 0.9736582040786743,
+        "mean_max_attention_weight": 0.16431938111782074,
+        "full_catalog_sigmoid_exact_one_fraction_including_known_positives": 1.9122773368172476e-07,
+        "full_catalog_logit_min": -11.420823097229004,
+        "full_catalog_logit_max": 16.916868209838867,
+        "interpretation": "query dependence and numerical diagnostics only; no method selection or test-label use inside the encoder"
+      }
+    },
+    "asymmetric": {
+      "completed_epochs": 1650,
+      "kind": "original_protocol",
+      "metrics": {
+        "precision": [
+          0.20199031737493275,
+          0.14142011834319526
+        ],
+        "recall": [
+          0.27320692128384433,
+          0.3811092753400446
+        ],
+        "ndcg": [
+          0.2944771146247997,
+          0.3476490190228204
+        ]
+      },
+      "seconds": 0.8189939000003505,
+      "diagnostics": {
+        "changed_neighbor_order_fraction_on_cyclic_query_replacement": 0.06647706776857376,
+        "changed_top1_fraction_on_cyclic_query_replacement": 0.009598293341696262,
+        "normalized_attention_entropy": 0.9807971119880676,
+        "mean_max_attention_weight": 0.15498904883861542,
+        "full_catalog_sigmoid_exact_one_fraction_including_known_positives": 0.0,
+        "full_catalog_logit_min": -11.384486198425293,
+        "full_catalog_logit_max": 16.48358154296875,
+        "interpretation": "query dependence and numerical diagnostics only; no method selection or test-label use inside the encoder",
+        "mean_absolute_forward_reverse_edge_logit_difference": 0.33146408200263977,
+        "query_key_projection_cosine": 0.028205739334225655,
+        "attention_bias_l2": 0.462803453207016
+      }
+    }
+  },
+  "selected_total_user_item_hits": {
+    "baseline": {
+      "10": 3721,
+      "20": 5166,
+      "11_to_20": 1445
+    },
+    "shared": {
+      "10": 3727,
+      "20": 5226,
+      "11_to_20": 1499
+    },
+    "asymmetric": {
+      "10": 3755,
+      "20": 5258,
+      "11_to_20": 1503
+    }
+  },
+  "selected_net_hit_change_asymmetric_vs_baseline": {
+    "10": 34,
+    "20": 92,
+    "11_to_20": 58
+  },
+  "posthoc_windows": {
+    "1000_1499": {
+      "baseline": {
+        "count": 100,
+        "mean_at20": {
+          "precision": 0.13777622377622378,
+          "recall": 0.37237788280095974,
+          "ndcg": 0.3400718764591084
+        },
+        "relative_percent_vs_baseline_mean": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "ndcg": 0.0
+        },
+        "same_epoch_wins_vs_baseline": {
+          "precision": 0,
+          "recall": 0,
+          "ndcg": 0
+        }
+      },
+      "shared": {
+        "count": 100,
+        "mean_at20": {
+          "precision": 0.1378768154922001,
+          "recall": 0.3722765119495889,
+          "ndcg": 0.3400322223159897
+        },
+        "relative_percent_vs_baseline_mean": {
+          "precision": 0.07301093992799768,
+          "recall": -0.02722257579004239,
+          "ndcg": -0.011660518220923954
+        },
+        "same_epoch_wins_vs_baseline": {
+          "precision": 60,
+          "recall": 48,
+          "ndcg": 55
+        }
+      },
+      "asymmetric": {
+        "count": 100,
+        "mean_at20": {
+          "precision": 0.13784830554061323,
+          "recall": 0.37216325554787094,
+          "ndcg": 0.33990726278147293
+        },
+        "relative_percent_vs_baseline_mean": {
+          "precision": 0.05231799973448581,
+          "recall": -0.05763694972279465,
+          "ndcg": -0.04840555454025397
+        },
+        "same_epoch_wins_vs_baseline": {
+          "precision": 53,
+          "recall": 44,
+          "ndcg": 48
+        }
+      }
+    },
+    "1500_1995": {
+      "baseline": {
+        "count": 100,
+        "mean_at20": {
+          "precision": 0.13830580957504035,
+          "recall": 0.3735211796750258,
+          "ndcg": 0.34137145269423064
+        },
+        "relative_percent_vs_baseline_mean": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "ndcg": 0.0
+        },
+        "same_epoch_wins_vs_baseline": {
+          "precision": 0,
+          "recall": 0,
+          "ndcg": 0
+        }
+      },
+      "shared": {
+        "count": 100,
+        "mean_at20": {
+          "precision": 0.13849220010758473,
+          "recall": 0.37367354653893115,
+          "ndcg": 0.34147214780797064
+        },
+        "relative_percent_vs_baseline_mean": {
+          "precision": 0.1347669581755806,
+          "recall": 0.04079202792139913,
+          "ndcg": 0.02949722741760752
+        },
+        "same_epoch_wins_vs_baseline": {
+          "precision": 57,
+          "recall": 54,
+          "ndcg": 58
+        }
+      },
+      "asymmetric": {
+        "count": 100,
+        "mean_at20": {
+          "precision": 0.1383641742872512,
+          "recall": 0.373302774148928,
+          "ndcg": 0.34123602624007426
+        },
+        "relative_percent_vs_baseline_mean": {
+          "precision": 0.04219975458021885,
+          "recall": -0.058472059412484345,
+          "ndcg": -0.039671288588294384
+        },
+        "same_epoch_wins_vs_baseline": {
+          "precision": 46,
+          "recall": 42,
+          "ndcg": 44
+        }
+      }
+    },
+    "1800_1995": {
+      "baseline": {
+        "count": 40,
+        "mean_at20": {
+          "precision": 0.1380439752555137,
+          "recall": 0.3728479746748977,
+          "ndcg": 0.3406581979577213
+        },
+        "relative_percent_vs_baseline_mean": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "ndcg": 0.0
+        },
+        "same_epoch_wins_vs_baseline": {
+          "precision": 0,
+          "recall": 0,
+          "ndcg": 0
+        }
+      },
+      "shared": {
+        "count": 40,
+        "mean_at20": {
+          "precision": 0.1383075578267886,
+          "recall": 0.3732142536950229,
+          "ndcg": 0.3408766716202042
+        },
+        "relative_percent_vs_baseline_mean": {
+          "precision": 0.1909410177351134,
+          "recall": 0.09823816810177188,
+          "ndcg": 0.06413280637092011
+        },
+        "same_epoch_wins_vs_baseline": {
+          "precision": 25,
+          "recall": 26,
+          "ndcg": 24
+        }
+      },
+      "asymmetric": {
+        "count": 40,
+        "mean_at20": {
+          "precision": 0.13818383539537385,
+          "recall": 0.3728673623385162,
+          "ndcg": 0.3406218965242307
+        },
+        "relative_percent_vs_baseline_mean": {
+          "precision": 0.10131564206352639,
+          "recall": 0.005199884385964637,
+          "ndcg": -0.01065626299564526
+        },
+        "same_epoch_wins_vs_baseline": {
+          "precision": 19,
+          "recall": 17,
+          "ndcg": 17
+        }
+      }
+    }
+  },
+  "loss_examples": {
+    "baseline": [
+      {
+        "completed_epochs": 100,
+        "mean_minibatch_loss": 0.12266672010484495
+      },
+      {
+        "completed_epochs": 1000,
+        "mean_minibatch_loss": 0.0631678729857269
+      },
+      {
+        "completed_epochs": 1650,
+        "mean_minibatch_loss": 0.056628468135992684
+      },
+      {
+        "completed_epochs": 2000,
+        "mean_minibatch_loss": 0.054916158645299445
+      }
+    ],
+    "shared": [
+      {
+        "completed_epochs": 100,
+        "loss": 0.12283430117786977,
+        "loss_components": {
+          "bpr": 0.10650233845961721,
+          "six_vector_regularizer": 163.319629869963
+        }
+      },
+      {
+        "completed_epochs": 1000,
+        "loss": 0.06302300193592121,
+        "loss_components": {
+          "bpr": 0.03909232085080523,
+          "six_vector_regularizer": 239.30681623492325
+        }
+      },
+      {
+        "completed_epochs": 1650,
+        "loss": 0.05678002751971546,
+        "loss_components": {
+          "bpr": 0.029865248553585588,
+          "six_vector_regularizer": 269.14779448927493
+        }
+      },
+      {
+        "completed_epochs": 2000,
+        "loss": 0.055171716696860496,
+        "loss_components": {
+          "bpr": 0.027408060764795857,
+          "six_vector_regularizer": 277.6365672329016
+        }
+      }
+    ],
+    "asymmetric": [
+      {
+        "completed_epochs": 100,
+        "loss": 0.12283276858036979,
+        "loss_components": {
+          "bpr": 0.1065031273061769,
+          "six_vector_regularizer": 163.29641536244173
+        }
+      },
+      {
+        "completed_epochs": 1000,
+        "loss": 0.0630039260314222,
+        "loss_components": {
+          "bpr": 0.03906016604027204,
+          "six_vector_regularizer": 239.43760841771177
+        }
+      },
+      {
+        "completed_epochs": 1650,
+        "loss": 0.056783955936369146,
+        "loss_components": {
+          "bpr": 0.02985486116979206,
+          "six_vector_regularizer": 269.29095458984375
+        }
+      },
+      {
+        "completed_epochs": 2000,
+        "loss": 0.05529209494329335,
+        "loss_components": {
+          "bpr": 0.027498421438953334,
+          "six_vector_regularizer": 277.93674080831966
+        }
+      }
+    ]
+  },
+  "diagnostic_trajectory": {
+    "shared": [
+      {
+        "epoch": 0,
+        "diagnostics": {
+          "changed_neighbor_order_fraction_on_cyclic_query_replacement": 0.9658727049827576,
+          "changed_top1_fraction_on_cyclic_query_replacement": 0.23071452975273132,
+          "normalized_attention_entropy": 0.9559773802757263,
+          "mean_max_attention_weight": 0.19273118674755096,
+          "full_catalog_sigmoid_exact_one_fraction_including_known_positives": 0.0,
+          "full_catalog_logit_min": 0.028693825006484985,
+          "full_catalog_logit_max": 0.9514116644859314,
+          "interpretation": "query dependence and numerical diagnostics only; no method selection or test-label use inside the encoder"
+        }
+      },
+      {
+        "epoch": 100,
+        "diagnostics": {
+          "changed_neighbor_order_fraction_on_cyclic_query_replacement": 0.0195520780980587,
+          "changed_top1_fraction_on_cyclic_query_replacement": 0.002488446421921253,
+          "normalized_attention_entropy": 0.9718785881996155,
+          "mean_max_attention_weight": 0.17005600035190582,
+          "full_catalog_sigmoid_exact_one_fraction_including_known_positives": 0.0,
+          "full_catalog_logit_min": -13.109731674194336,
+          "full_catalog_logit_max": 15.993398666381836,
+          "interpretation": "query dependence and numerical diagnostics only; no method selection or test-label use inside the encoder"
+        }
+      },
+      {
+        "epoch": 1000,
+        "diagnostics": {
+          "changed_neighbor_order_fraction_on_cyclic_query_replacement": 0.15748311579227448,
+          "changed_top1_fraction_on_cyclic_query_replacement": 0.0725204348564148,
+          "normalized_attention_entropy": 0.9811499118804932,
+          "mean_max_attention_weight": 0.15345461666584015,
+          "full_catalog_sigmoid_exact_one_fraction_including_known_positives": 5.736832010451743e-07,
+          "full_catalog_logit_min": -12.276713371276855,
+          "full_catalog_logit_max": 18.595550537109375,
+          "interpretation": "query dependence and numerical diagnostics only; no method selection or test-label use inside the encoder"
+        }
+      },
+      {
+        "epoch": 1650,
+        "diagnostics": {
+          "changed_neighbor_order_fraction_on_cyclic_query_replacement": 0.2026306390762329,
+          "changed_top1_fraction_on_cyclic_query_replacement": 0.07927479594945908,
+          "normalized_attention_entropy": 0.9736582040786743,
+          "mean_max_attention_weight": 0.16431938111782074,
+          "full_catalog_sigmoid_exact_one_fraction_including_known_positives": 1.9122773368172476e-07,
+          "full_catalog_logit_min": -11.420823097229004,
+          "full_catalog_logit_max": 16.916868209838867,
+          "interpretation": "query dependence and numerical diagnostics only; no method selection or test-label use inside the encoder"
+        }
+      },
+      {
+        "epoch": 2000,
+        "diagnostics": {
+          "changed_neighbor_order_fraction_on_cyclic_query_replacement": 0.3270529508590698,
+          "changed_top1_fraction_on_cyclic_query_replacement": 0.10238179564476013,
+          "normalized_attention_entropy": 0.9635475277900696,
+          "mean_max_attention_weight": 0.1787375956773758,
+          "full_catalog_sigmoid_exact_one_fraction_including_known_positives": 7.075426146223816e-06,
+          "full_catalog_logit_min": -10.769573211669922,
+          "full_catalog_logit_max": 18.894235610961914,
+          "interpretation": "query dependence and numerical diagnostics only; no method selection or test-label use inside the encoder"
+        }
+      }
+    ],
+    "asymmetric": [
+      {
+        "epoch": 0,
+        "diagnostics": {
+          "changed_neighbor_order_fraction_on_cyclic_query_replacement": 0.9893351793289185,
+          "changed_top1_fraction_on_cyclic_query_replacement": 0.34696054458618164,
+          "normalized_attention_entropy": 0.9630342721939087,
+          "mean_max_attention_weight": 0.18283089995384216,
+          "full_catalog_sigmoid_exact_one_fraction_including_known_positives": 0.0,
+          "full_catalog_logit_min": 0.028795374557375908,
+          "full_catalog_logit_max": 0.9527001976966858,
+          "interpretation": "query dependence and numerical diagnostics only; no method selection or test-label use inside the encoder",
+          "mean_absolute_forward_reverse_edge_logit_difference": 0.6190070509910583,
+          "query_key_projection_cosine": 0.0007820951286703348,
+          "attention_bias_l2": 0.0
+        }
+      },
+      {
+        "epoch": 100,
+        "diagnostics": {
+          "changed_neighbor_order_fraction_on_cyclic_query_replacement": 0.009598293341696262,
+          "changed_top1_fraction_on_cyclic_query_replacement": 0.0017774617299437523,
+          "normalized_attention_entropy": 0.9719354510307312,
+          "mean_max_attention_weight": 0.16993485391139984,
+          "full_catalog_sigmoid_exact_one_fraction_including_known_positives": 0.0,
+          "full_catalog_logit_min": -13.142105102539062,
+          "full_catalog_logit_max": 16.03386688232422,
+          "interpretation": "query dependence and numerical diagnostics only; no method selection or test-label use inside the encoder",
+          "mean_absolute_forward_reverse_edge_logit_difference": 0.38377174735069275,
+          "query_key_projection_cosine": 0.011929075233638287,
+          "attention_bias_l2": 0.11331283301115036
+        }
+      },
+      {
+        "epoch": 1000,
+        "diagnostics": {
+          "changed_neighbor_order_fraction_on_cyclic_query_replacement": 0.010664770379662514,
+          "changed_top1_fraction_on_cyclic_query_replacement": 0.00035549234598875046,
+          "normalized_attention_entropy": 0.9825067520141602,
+          "mean_max_attention_weight": 0.15283022820949554,
+          "full_catalog_sigmoid_exact_one_fraction_including_known_positives": 9.561386684086239e-07,
+          "full_catalog_logit_min": -12.236486434936523,
+          "full_catalog_logit_max": 18.574682235717773,
+          "interpretation": "query dependence and numerical diagnostics only; no method selection or test-label use inside the encoder",
+          "mean_absolute_forward_reverse_edge_logit_difference": 0.31986895203590393,
+          "query_key_projection_cosine": 0.0064411889761686325,
+          "attention_bias_l2": 0.3645695149898529
+        }
+      },
+      {
+        "epoch": 1650,
+        "diagnostics": {
+          "changed_neighbor_order_fraction_on_cyclic_query_replacement": 0.06647706776857376,
+          "changed_top1_fraction_on_cyclic_query_replacement": 0.009598293341696262,
+          "normalized_attention_entropy": 0.9807971119880676,
+          "mean_max_attention_weight": 0.15498904883861542,
+          "full_catalog_sigmoid_exact_one_fraction_including_known_positives": 0.0,
+          "full_catalog_logit_min": -11.384486198425293,
+          "full_catalog_logit_max": 16.48358154296875,
+          "interpretation": "query dependence and numerical diagnostics only; no method selection or test-label use inside the encoder",
+          "mean_absolute_forward_reverse_edge_logit_difference": 0.33146408200263977,
+          "query_key_projection_cosine": 0.028205739334225655,
+          "attention_bias_l2": 0.462803453207016
+        }
+      },
+      {
+        "epoch": 2000,
+        "diagnostics": {
+          "changed_neighbor_order_fraction_on_cyclic_query_replacement": 0.03590472787618637,
+          "changed_top1_fraction_on_cyclic_query_replacement": 0.00817632395774126,
+          "normalized_attention_entropy": 0.9671120643615723,
+          "mean_max_attention_weight": 0.17665249109268188,
+          "full_catalog_sigmoid_exact_one_fraction_including_known_positives": 6.884198412542092e-06,
+          "full_catalog_logit_min": -10.66634464263916,
+          "full_catalog_logit_max": 18.741167068481445,
+          "interpretation": "query dependence and numerical diagnostics only; no method selection or test-label use inside the encoder",
+          "mean_absolute_forward_reverse_edge_logit_difference": 0.45939376950263977,
+          "query_key_projection_cosine": 0.022065848112106323,
+          "attention_bias_l2": 0.48344001173973083
+        }
+      }
+    ]
+  },
+  "final_metrics": {
+    "baseline": {
+      "precision": [
+        0.20075309306078534,
+        0.13897256589564283
+      ],
+      "recall": [
+        0.2725281129127283,
+        0.3749863384478769
+      ],
+      "ndcg": [
+        0.2922360183141114,
+        0.34284221999548964
+      ]
+    },
+    "shared": {
+      "precision": [
+        0.19930069930069932,
+        0.13856912318450781
+      ],
+      "recall": [
+        0.26980220634066787,
+        0.37410687602995296
+      ],
+      "ndcg": [
+        0.29161327831363715,
+        0.34291543069095
+      ]
+    },
+    "asymmetric": {
+      "precision": [
+        0.199838622915546,
+        0.1384077461000538
+      ],
+      "recall": [
+        0.27093077862308623,
+        0.3730918653995577
+      ],
+      "ndcg": [
+        0.2913041080434389,
+        0.3418004371656337
+      ]
+    }
+  },
+  "limits": [
+    "No per-user/rank-list logs: cannot locate which users or items gained/lost, or individual rank movement.",
+    "A change in query probe is not proof of useful recommendation attention or a causal explanation of metric differences.",
+    "The asymmetric version changes query/key parameterization and bias and increases capacity; contributions remain unseparated.",
+    "Repeated original-test selection and incomplete semantic-asset provenance remain existing limitations."
+  ],
+  "analysis_directory": "D:\\CoLaKGExperiments\\attention-log-analysis-20261029-112510-cc8e3b"
+}
