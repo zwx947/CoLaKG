@@ -1,0 +1,324 @@
+{
+  "inputs": {
+    "D:\\GitHub\\colakg\\CoLaKG\\data\\lastfm\\train.txt": "643619d1afd8d9bfbe536d0b9369b160bee932f69fdb59329132fcc07ade65a1",
+    "D:\\GitHub\\colakg\\CoLaKG\\data\\lastfm\\lastfm_embeddings_simcse_kg.pt": "8d826d30a8bac4a25fcde9e98dc4f7116da6fda954f05dae764de86634e64fab",
+    "D:\\GitHub\\colakg\\CoLaKG\\data\\lastfm\\lastfm_embeddings_simcse_kg_user.pt": "8ce9c4d833a9f17937478c76ccdff0ea1214b5b347e4ff2232562a63dc593215"
+  },
+  "train_positive_count": 57786,
+  "test_ranking_computed": false,
+  "optimizer_steps": 0,
+  "objective": "uniform active train users, all their positives averaged, one uniform unobserved negative per positive in each of 3 draws",
+  "meaning": "Derivative of total training BPR wrt one item pre-propagation scalar neighbor ratio at .5; includes effects on other nodes. Not optimal ratio or generalization evidence.",
+  "models": {
+    "original_final2000": {
+      "checkpoint": "D:\\CoLaKGExperiments\\lastfm-baseline-20261022-233837-33d715d8\\checkpoints\\colakg-lastfm-latest.pth.tar",
+      "sha256": "7a4e73b3ba1b79b98d3f6e1f8eb1a09c44d0d51ab02058ca42fcdb31a64cb6ba",
+      "ratio_half_train_bpr": [
+        0.026000969111919403,
+        0.02742329239845276,
+        0.025915086269378662
+      ],
+      "global_ratio_sweep_training_only": {
+        "0.0": 0.018454361706972122,
+        "0.25": 0.0212824996560812,
+        "0.45": 0.02487078122794628,
+        "0.5": 0.026000969111919403,
+        "0.55": 0.027239615097641945,
+        "0.75": 0.0334678515791893,
+        "1.0": 0.04500079154968262
+      },
+      "counts": {
+        "more_neighbor": 45,
+        "more_center": 1678,
+        "uncertain": 1090
+      },
+      "groups": [
+        {
+          "feature": "train_degree",
+          "group": 0,
+          "n": 1049,
+          "min": 1.0,
+          "max": 6.0,
+          "counts": {
+            "more_neighbor": 6,
+            "more_center": 705,
+            "uncertain": 338
+          }
+        },
+        {
+          "feature": "train_degree",
+          "group": 1,
+          "n": 832,
+          "min": 7.0,
+          "max": 13.0,
+          "counts": {
+            "more_neighbor": 5,
+            "more_center": 491,
+            "uncertain": 336
+          }
+        },
+        {
+          "feature": "train_degree",
+          "group": 2,
+          "n": 932,
+          "min": 14.0,
+          "max": 494.0,
+          "counts": {
+            "more_neighbor": 34,
+            "more_center": 482,
+            "uncertain": 416
+          }
+        },
+        {
+          "feature": "center_message_cosine",
+          "group": 0,
+          "n": 938,
+          "min": 0.043380480259656906,
+          "max": 0.5857947468757629,
+          "counts": {
+            "more_neighbor": 10,
+            "more_center": 622,
+            "uncertain": 306
+          }
+        },
+        {
+          "feature": "center_message_cosine",
+          "group": 1,
+          "n": 937,
+          "min": 0.5858455896377563,
+          "max": 0.7094200253486633,
+          "counts": {
+            "more_neighbor": 18,
+            "more_center": 554,
+            "uncertain": 365
+          }
+        },
+        {
+          "feature": "center_message_cosine",
+          "group": 2,
+          "n": 938,
+          "min": 0.7095338106155396,
+          "max": 0.9440343379974365,
+          "counts": {
+            "more_neighbor": 17,
+            "more_center": 502,
+            "uncertain": 419
+          }
+        },
+        {
+          "feature": "message_center_norm_ratio",
+          "group": 0,
+          "n": 938,
+          "min": 0.2833487391471863,
+          "max": 0.5297226309776306,
+          "counts": {
+            "more_neighbor": 15,
+            "more_center": 548,
+            "uncertain": 375
+          }
+        },
+        {
+          "feature": "message_center_norm_ratio",
+          "group": 1,
+          "n": 937,
+          "min": 0.5298541188240051,
+          "max": 0.6614301800727844,
+          "counts": {
+            "more_neighbor": 11,
+            "more_center": 586,
+            "uncertain": 340
+          }
+        },
+        {
+          "feature": "message_center_norm_ratio",
+          "group": 2,
+          "n": 938,
+          "min": 0.6615777015686035,
+          "max": 1.651565670967102,
+          "counts": {
+            "more_neighbor": 19,
+            "more_center": 544,
+            "uncertain": 375
+          }
+        }
+      ],
+      "finite_difference_checks": [
+        {
+          "item_id": 0,
+          "finite_difference": 1.3969838619232178e-05,
+          "autograd": 1.3868907444702927e-05
+        },
+        {
+          "item_id": 1406,
+          "finite_difference": 7.441267371177673e-05,
+          "autograd": 7.443832873832434e-05
+        },
+        {
+          "item_id": 2812,
+          "finite_difference": 2.9802322387695312e-06,
+          "autograd": 2.961705376947066e-06
+        }
+      ],
+      "spearman_descriptive": {
+        "degree": -0.149776185062796,
+        "cosine": 0.34955001838304334,
+        "norm_ratio": 0.30357664569203957
+      }
+    },
+    "asymmetric_best1650": {
+      "checkpoint": "D:\\CoLaKGResearch\\asymmetric-semantic-attention-v1\\direct-test-asymmetric_semantic_attention-s2020-20261028-233455-8d6c5a\\checkpoints\\best-protocol.pt",
+      "sha256": "b675409aa27f3eed66e60758fc96ee7873d746b49a1b7299d54350a01280ef10",
+      "ratio_half_train_bpr": [
+        0.02699894830584526,
+        0.028282806277275085,
+        0.026520637795329094
+      ],
+      "global_ratio_sweep_training_only": {
+        "0.0": 0.01981455832719803,
+        "0.25": 0.02235996350646019,
+        "0.45": 0.025866437703371048,
+        "0.5": 0.02699894830584526,
+        "0.55": 0.028250079602003098,
+        "0.75": 0.03464280068874359,
+        "1.0": 0.04669887572526932
+      },
+      "counts": {
+        "more_neighbor": 27,
+        "more_center": 1571,
+        "uncertain": 1215
+      },
+      "groups": [
+        {
+          "feature": "train_degree",
+          "group": 0,
+          "n": 1049,
+          "min": 1.0,
+          "max": 6.0,
+          "counts": {
+            "more_neighbor": 3,
+            "more_center": 638,
+            "uncertain": 408
+          }
+        },
+        {
+          "feature": "train_degree",
+          "group": 1,
+          "n": 832,
+          "min": 7.0,
+          "max": 13.0,
+          "counts": {
+            "more_neighbor": 7,
+            "more_center": 452,
+            "uncertain": 373
+          }
+        },
+        {
+          "feature": "train_degree",
+          "group": 2,
+          "n": 932,
+          "min": 14.0,
+          "max": 494.0,
+          "counts": {
+            "more_neighbor": 17,
+            "more_center": 481,
+            "uncertain": 434
+          }
+        },
+        {
+          "feature": "center_message_cosine",
+          "group": 0,
+          "n": 938,
+          "min": 0.005607578903436661,
+          "max": 0.589381754398346,
+          "counts": {
+            "more_neighbor": 5,
+            "more_center": 564,
+            "uncertain": 369
+          }
+        },
+        {
+          "feature": "center_message_cosine",
+          "group": 1,
+          "n": 937,
+          "min": 0.5894490480422974,
+          "max": 0.7113422155380249,
+          "counts": {
+            "more_neighbor": 9,
+            "more_center": 532,
+            "uncertain": 396
+          }
+        },
+        {
+          "feature": "center_message_cosine",
+          "group": 2,
+          "n": 938,
+          "min": 0.7114520072937012,
+          "max": 0.9434523582458496,
+          "counts": {
+            "more_neighbor": 13,
+            "more_center": 475,
+            "uncertain": 450
+          }
+        },
+        {
+          "feature": "message_center_norm_ratio",
+          "group": 0,
+          "n": 938,
+          "min": 0.27798184752464294,
+          "max": 0.5267416834831238,
+          "counts": {
+            "more_neighbor": 9,
+            "more_center": 517,
+            "uncertain": 412
+          }
+        },
+        {
+          "feature": "message_center_norm_ratio",
+          "group": 1,
+          "n": 937,
+          "min": 0.5268692374229431,
+          "max": 0.6608022451400757,
+          "counts": {
+            "more_neighbor": 6,
+            "more_center": 536,
+            "uncertain": 395
+          }
+        },
+        {
+          "feature": "message_center_norm_ratio",
+          "group": 2,
+          "n": 938,
+          "min": 0.6610175967216492,
+          "max": 1.693235993385315,
+          "counts": {
+            "more_neighbor": 12,
+            "more_center": 518,
+            "uncertain": 408
+          }
+        }
+      ],
+      "finite_difference_checks": [
+        {
+          "item_id": 0,
+          "finite_difference": 1.993030309677124e-05,
+          "autograd": 1.9781473383773118e-05
+        },
+        {
+          "item_id": 1406,
+          "finite_difference": 5.6531280279159546e-05,
+          "autograd": 5.651382889482193e-05
+        },
+        {
+          "item_id": 2812,
+          "finite_difference": 2.2351741790771484e-06,
+          "autograd": 2.1985549665259896e-06
+        }
+      ],
+      "spearman_descriptive": {
+        "degree": -0.214144954754944,
+        "cosine": 0.3092542536698261,
+        "norm_ratio": 0.274108105621763
+      }
+    }
+  }
+}
