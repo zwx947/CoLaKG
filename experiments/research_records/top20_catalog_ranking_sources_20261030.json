@@ -1,0 +1,19 @@
+{
+  "primary_paper": "https://arxiv.org/html/2508.05673v1",
+  "title": "Breaking the Top-K Barrier: Advancing Top-K Ranking Metrics Optimization in Recommender Systems",
+  "venue": "KDD 2025",
+  "doi": "10.1145/3711896.3736866",
+  "author_code": "https://raw.githubusercontent.com/Tiny-Snow/IR-Benchmark/main/src/itemrec/optimizer/optim_SLatK.py",
+  "author_code_sha256": "81680192400d245327ffb811e207e8b320c5bbe23328194e730014fc027e562a",
+  "readme_sha256": "a36412406248e57b1d7082b6057a45dde2c1d9be88ca7a6521848ced6eddd15a",
+  "cache": "D:\\CoLaKGSetup\\topk-ranking-review-20261030-235450-914212",
+  "git_revision": "Not resolved; main-path files identified by SHA256, not a claimed fixed upstream commit",
+  "external_code_executed": false,
+  "implementation": "Independent train-only full-catalog adaptation, not a copy or reproduction of the author optimizer",
+  "reviewed_alternative": {
+    "paper": "https://arxiv.org/html/2512.10688v6",
+    "code": "https://raw.githubusercontent.com/LingFeng-Liu-AI/DDC/main/lightgcnddc.py",
+    "venue": "KDD 2026",
+    "reason_not_selected_now": "Published author implementation freezes a pretrained backbone and loads a popularity direction; current next experiment requires fresh end-to-end random initialization and avoids an additional pretraining protocol. Not a rejection of the research family."
+  }
+}
