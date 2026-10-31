@@ -1,0 +1,348 @@
+{
+  "run_directory": "D:\\CoLaKGResearch\\top20-catalog-ranking-v1\\direct-test-top20_catalog_ranking-s2020-20261031-081145-9d92f1",
+  "pid": 139464,
+  "success": true,
+  "git_commit": "f44b2f1dc1b37886407812a7f662bd13815e752f",
+  "git_branch": "codex/b-top20-catalog-ranking",
+  "gpu_guard": {
+    "ignored_verified_codex_ui": [],
+    "blocking": []
+  },
+  "method": "top20_catalog_ranking",
+  "phase": "direct_test_exploration",
+  "seed": 2020,
+  "epochs": 2000,
+  "config": {
+    "bpr_batch_size": 1024,
+    "latent_dim_rec": 64,
+    "lightGCN_n_layers": 3,
+    "use_drop_edge": 0,
+    "keep_prob": 1.0,
+    "A_n_fold": 100,
+    "test_u_batch_size": 100,
+    "multicore": 0,
+    "lr": 0.001,
+    "decay": 0.0001,
+    "pretrain": 0,
+    "A_split": false,
+    "bigdata": false,
+    "neighbor_k": 10,
+    "dropout_i": 0.6,
+    "dropout_u": 0.2,
+    "dropout_n": 0.6
+  },
+  "method_config": {
+    "name": "top20_catalog_ranking",
+    "A_enabled": false,
+    "encoder": "exact original CoLaKG; original attention, two 1:1 fusions, dropout and UI propagation",
+    "objective": "original BPR + 0.05 * detached sigmoid(pos - kth unobserved score) * CE(target + all unobserved)",
+    "cutoff": 20,
+    "auxiliary_weight": 0.05,
+    "score_temperature": 1.0,
+    "weight_temperature": 1.0,
+    "negative_mask": "train known positives only; no test labels",
+    "score": "unchanged raw dot product; inference unchanged original sigmoid(dot)",
+    "quantile": "exact kth unobserved score from current training forward, detached",
+    "difference_from_SL_at_K": "anchored BPR, exact masked catalog, detached weights, positive included in denominator, raw dot scores; not original bound or replication",
+    "parameter_delta": 0,
+    "source": "Breaking the Top-K Barrier, KDD 2025; independently implemented adaptation",
+    "regularization": "unchanged original six sampled vectors"
+  },
+  "versions": {
+    "torch": "1.13.0",
+    "numpy": "1.24.4",
+    "pandas": "2.0.3",
+    "scipy": "1.10.1",
+    "scikit-learn": "1.3.2",
+    "tensorboardX": "2.6.2.2",
+    "tqdm": "4.66.4"
+  },
+  "cuda": "11.7",
+  "gpu": "NVIDIA GeForce MX450",
+  "parameters": 495872,
+  "training_interactions": 57786,
+  "test_interactions": 13508,
+  "checkpoint_loading": false,
+  "initialization": "fresh random recommendation parameters, fixed released semantic assets",
+  "evaluation_protocol": "completed epochs 0,5,...,1995 before training, plus 2000 final",
+  "evaluation_data": "original LastFM test, explicitly used for research feedback",
+  "test_selection_limitation": "User-authorized direct test feedback for exploration. Repeated test selection is not an independent validation-selected generalization conclusion.",
+  "reference": {
+    "baseline_result_sha256": "05fb34cba7208246d24aa37f4c0fd957a3607a13b437887f971ee877d1af092b",
+    "baseline_evaluations_sha256": "013a07cf22d6f64f23f5d35b74562925c1dc3890178aee0f7965da051247c0cd",
+    "baseline_directory": "D:\\CoLaKGExperiments\\lastfm-baseline-20261022-233837-33d715d8",
+    "original_protocol_best": {
+      "kind": "original_protocol",
+      "completed_epochs": 1920,
+      "original_epoch_argument": 1920,
+      "original_display_epoch": 1921,
+      "metrics": {
+        "precision": [
+          0.200161377084454,
+          0.13894566971490052
+        ],
+        "recall": [
+          0.2706169898477591,
+          0.37686757686757677
+        ],
+        "ndcg": [
+          0.29540403476387855,
+          0.3473341593547369
+        ]
+      },
+      "seconds": 1.1370015999999907,
+      "at": "2026-10-23T08:40:45.308628+08:00"
+    },
+    "shared_dynamic_best": {
+      "completed_epochs": 1645,
+      "kind": "original_protocol",
+      "metrics": {
+        "precision": [
+          0.200484131253362,
+          0.14055944055944056
+        ],
+        "recall": [
+          0.2701659451659451,
+          0.3794037159421774
+        ],
+        "ndcg": [
+          0.29366224883214487,
+          0.3471898326667511
+        ]
+      },
+      "seconds": 0.5511789000001954,
+      "diagnostics": {
+        "changed_neighbor_order_fraction_on_cyclic_query_replacement": 0.18236757814884186,
+        "changed_top1_fraction_on_cyclic_query_replacement": 0.07643085718154907,
+        "normalized_attention_entropy": 0.9717899560928345,
+        "mean_max_attention_weight": 0.1676829308271408,
+        "full_catalog_sigmoid_exact_one_fraction_including_known_positives": 1.9122773368172476e-07,
+        "full_catalog_logit_min": -12.016319274902344,
+        "full_catalog_logit_max": 16.67066192626953,
+        "interpretation": "query dependence and numerical diagnostics only; no method selection or test-label use inside the encoder"
+      },
+      "checkpoint_sha256": "2eec226169dbbdcc7efcb47dfdcdf5e5a6a0b1c056fcf4ec75e836ae2763ad48"
+    },
+    "shared_dynamic_final": {
+      "precision": [
+        0.19930069930069932,
+        0.13856912318450781
+      ],
+      "recall": [
+        0.26980220634066787,
+        0.37410687602995296
+      ],
+      "ndcg": [
+        0.29161327831363715,
+        0.34291543069095
+      ]
+    },
+    "shared_dynamic_directory": "D:\\CoLaKGResearch\\dynamic-semantic-attention-v1\\direct-test-dynamic_semantic_attention-s2020-20261028-211059-bfa969",
+    "shared_dynamic_result_sha256": "14710455b22a6b0b53e5ddc6221aea7a6180ce1381530d7d56dcfd28a0e2861c",
+    "best_including_final": {
+      "kind": "original_protocol",
+      "completed_epochs": 1920,
+      "original_epoch_argument": 1920,
+      "original_display_epoch": 1921,
+      "metrics": {
+        "precision": [
+          0.200161377084454,
+          0.13894566971490052
+        ],
+        "recall": [
+          0.2706169898477591,
+          0.37686757686757677
+        ],
+        "ndcg": [
+          0.29540403476387855,
+          0.3473341593547369
+        ]
+      },
+      "seconds": 1.1370015999999907,
+      "at": "2026-10-23T08:40:45.308628+08:00"
+    },
+    "final": {
+      "kind": "final_2000_epochs",
+      "completed_epochs": 2000,
+      "original_epoch_argument": 2000,
+      "original_display_epoch": null,
+      "metrics": {
+        "precision": [
+          0.20075309306078534,
+          0.13897256589564283
+        ],
+        "recall": [
+          0.2725281129127283,
+          0.3749863384478769
+        ],
+        "ndcg": [
+          0.2922360183141114,
+          0.34284221999548964
+        ]
+      },
+      "seconds": 0.7923758999999677,
+      "at": "2026-10-23T08:45:41.195410+08:00"
+    },
+    "original_rec_sources_unchanged": true,
+    "checkpoint_loaded": false
+  },
+  "source_sha256": {
+    "rec_code\\dataloader.py": "91f4ee2a51d61a92fbf4ab9c07d482a6a58d01365f235b81a414b679fcf0854b",
+    "rec_code\\main.py": "eddb9f017c9167b14249a830b822f7737b737725e5f347bf61566d8c4afc4bf1",
+    "rec_code\\model.py": "8a23736aff55c6a8e4f755748e5ccc66e830e90c9633e6b9e5f495e9cb6e67e2",
+    "rec_code\\parse.py": "baca82a1aa7fba6831e6ec0e98a69a1cadd5e5725f65e7c58db939c9820b551d",
+    "rec_code\\Procedure.py": "dcb80e24ac758312991d4b95718e08fd6c33cb6ccd881029b1d29a3b5ff9d85c",
+    "rec_code\\register.py": "d9f0ba8997ccb9bc9da205f587b1167301c768390c1e39ff486e1fac7b99bde5",
+    "rec_code\\utils.py": "994e36a720ce9edc27e813b1a8be206d499d88d4596bc4e6a1db11b570e6e770",
+    "rec_code\\world.py": "686ce52e7feba1f5a28467c2398ad9b499d54380f4d7dc95fca21513a462cfd6",
+    "rec_code\\train_lastfm.sh": "e58e34cafd5a7fcad5ac2c66d816d5363b5abd7fd91c56cf149e320139f1c647",
+    "experiments\\top20_catalog_ranking_2000.py": "1199aaa7f1532a0c2332528db4682d38b50360598e8f2c92219e44e815db6a3e",
+    "experiments\\research_methods\\top20_catalog_ranking.py": "c05ed1c221de7d84d6fefbd4533239707a375a399dbc44b6d357e4e2b1441624",
+    "AGENTS.md": "08a7207a06fb42786d0a0180d179f1ec1819647bceb02e76a233dd58fe27ec5f",
+    "experiments\\top20_catalog_ranking_protocol.md": "2ebbc6a8be9877194b507136ec5b8d4a5a75fa8c4511a75e877eafc373021f65",
+    "experiments\\check_dynamic_semantic_attention.py": "0054dd5b94a1058ae3c5176ed2af3b25b5f9faf1d89a3850ed39a21d0575157b",
+    "experiments\\lastfm_one_minibatch.py": "3e425085050714819b0a407accaa051b326dce1643169dfc6c250ba2031ef482",
+    "experiments\\lastfm_windows.py": "612a88ee760aaa289db5a58e64bd1b9f3ab8a549f9848dcb527e83ef69cb0d51",
+    "experiments\\experiment_io.py": "02ab051d80f4d874a7e75d4cc68127c0310a4acbc5fd853335c4721e6090884d",
+    "experiments\\research_gpu_guard.py": "b9b28ef076877a0c202c01cd9a386e57bd1bcebc1ca23fce59e8291ced777799",
+    "experiments\\check_top20_catalog_ranking.py": "670d3fe2e346136b610149a33b9d2b74f0435b7dc496ca492be0e78cf8a0126c",
+    "experiments\\research_records\\top20_catalog_ranking_sources_20261030.json": "6913f0d534f6ff6286d2c99209c9c3f8a8c7244da93c23d5e59f2cb0d0d5d459"
+  },
+  "input_sha256": {
+    "D:\\GitHub\\colakg\\CoLaKG\\data\\lastfm\\train.txt": "643619d1afd8d9bfbe536d0b9369b160bee932f69fdb59329132fcc07ade65a1",
+    "D:\\GitHub\\colakg\\CoLaKG\\data\\lastfm\\test.txt": "0857015b628798e95e195daed6f9b289ab3bf888519e1c6445525de867f0008e",
+    "D:\\GitHub\\colakg\\CoLaKG\\data\\lastfm\\lastfm_embeddings_simcse_kg.pt": "8d826d30a8bac4a25fcde9e98dc4f7116da6fda954f05dae764de86634e64fab",
+    "D:\\GitHub\\colakg\\CoLaKG\\data\\lastfm\\lastfm_embeddings_simcse_kg_user.pt": "8ce9c4d833a9f17937478c76ccdff0ea1214b5b347e4ff2232562a63dc593215",
+    "D:\\GitHub\\colakg\\CoLaKG\\data\\lastfm\\user_map.txt": "117912910435eda93b7960b8312810fa882e25b063ed28f5bd7aa3c1193b8b44",
+    "D:\\GitHub\\colakg\\CoLaKG\\data\\lastfm\\item_map.txt": "2a4c30a522c2f8115b69cc729b3d6e5553be48edf85c230dadf080c73e4de69a"
+  },
+  "status": "completed",
+  "completed_epochs": 2000,
+  "updates": 114000,
+  "latest": {
+    "completed_epochs": 2000,
+    "updates": 114000,
+    "loss": 0.14411434635781406,
+    "training_seconds": 3.741703600000619,
+    "sampling_seconds": 1.1780513999983668,
+    "training_after_sampling_seconds": 2.5636522000022524,
+    "loss_components": {
+      "bpr": 0.00942287437225643,
+      "catalog_top20": 1.28573477268219,
+      "catalog_ce": 2.062190683264481,
+      "top20_weight_mean": 0.8361810017050358,
+      "top20_weight_min": 0.03232020647836882,
+      "top20_weight_max": 0.9999928976360121,
+      "top20_threshold_mean": 7.55704056589227,
+      "six_vector_regularizer": 704.047318307977
+    }
+  },
+  "elapsed_seconds": 8922.4085128,
+  "peak_allocated_bytes": 372408832,
+  "peak_reserved_bytes": 421527552,
+  "evaluation_count": 401,
+  "best_observed_original_protocol": {
+    "completed_epochs": 505,
+    "kind": "original_protocol",
+    "metrics": {
+      "precision": [
+        0.19741796664873587,
+        0.1381656804733728
+      ],
+      "recall": [
+        0.2665306915306916,
+        0.37344258305796757
+      ],
+      "ndcg": [
+        0.286888815677238,
+        0.3391396806619858
+      ]
+    },
+    "seconds": 0.6392151000000013,
+    "diagnostics": {
+      "bpr": 0.06817629188299179,
+      "catalog_top20": 1.7269816398620605,
+      "catalog_ce": 4.557595729827881,
+      "top20_weight_mean": 0.5296639204025269,
+      "top20_weight_min": 0.007076183799654245,
+      "top20_weight_max": 0.9999849796295166,
+      "top20_threshold_mean": 7.3788299560546875,
+      "six_vector_regularizer": 267.25006103515625,
+      "catalog_auxiliary_weight": 0.05,
+      "training_only_topk_cutoff": 20
+    },
+    "checkpoint_sha256": "75a12f358e971ca264348a5a988541857b0bfd465c7fa9843de2e757368e8e5d"
+  },
+  "best_including_final": {
+    "completed_epochs": 505,
+    "kind": "original_protocol",
+    "metrics": {
+      "precision": [
+        0.19741796664873587,
+        0.1381656804733728
+      ],
+      "recall": [
+        0.2665306915306916,
+        0.37344258305796757
+      ],
+      "ndcg": [
+        0.286888815677238,
+        0.3391396806619858
+      ]
+    },
+    "seconds": 0.6392151000000013,
+    "diagnostics": {
+      "bpr": 0.06817629188299179,
+      "catalog_top20": 1.7269816398620605,
+      "catalog_ce": 4.557595729827881,
+      "top20_weight_mean": 0.5296639204025269,
+      "top20_weight_min": 0.007076183799654245,
+      "top20_weight_max": 0.9999849796295166,
+      "top20_threshold_mean": 7.3788299560546875,
+      "six_vector_regularizer": 267.25006103515625,
+      "catalog_auxiliary_weight": 0.05,
+      "training_only_topk_cutoff": 20
+    },
+    "checkpoint_sha256": "61bc012337d240297a4826837a5decc8ab720627b4ed6c4ad96ef6aebffd2686"
+  },
+  "final_metrics": {
+    "precision": [
+      0.1717590102205487,
+      0.12401828940290478
+    ],
+    "recall": [
+      0.2308110692726077,
+      0.3304368708214862
+    ],
+    "ndcg": [
+      0.2392371312885547,
+      0.28890057721401247
+    ]
+  },
+  "final_checkpoint_sha256": "7c4ac6008996b702dfc30c5387f168bef4ac85b06946bca30b30818616a32960",
+  "final_diagnostics": {
+    "bpr": 0.011992017738521099,
+    "catalog_top20": 1.2652132511138916,
+    "catalog_ce": 2.1230075359344482,
+    "top20_weight_mean": 0.8235668540000916,
+    "top20_weight_min": 0.07297507673501968,
+    "top20_weight_max": 0.9999920129776001,
+    "top20_threshold_mean": 7.8341145515441895,
+    "six_vector_regularizer": 702.599365234375,
+    "catalog_auxiliary_weight": 0.05,
+    "training_only_topk_cutoff": 20
+  },
+  "timing_breakdown": {
+    "training_including_sampling_seconds": 8602.747614799982,
+    "sampling_seconds": 2988.859053799989,
+    "training_after_sampling_seconds": 5613.888560999993,
+    "evaluation_seconds": 272.24222480000384,
+    "checkpoint_seconds": 18.31053140000766
+  },
+  "relative_gain_best_protocol": -0.023592492912227425,
+  "relative_gain_vs_shared_dynamic": -0.023186600664346635,
+  "relative_gain_best_including_final": -0.023592492912227425,
+  "source_unchanged": true,
+  "input_unchanged": true,
+  "method_protocol": "experiments/top20_catalog_ranking_protocol.md"
+}
