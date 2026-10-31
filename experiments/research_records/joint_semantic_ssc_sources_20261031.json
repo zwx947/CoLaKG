@@ -1,0 +1,19 @@
+{
+  "primary_paper": "https://arxiv.org/html/2502.08071v2",
+  "title": "Collaborative Filtering Meets Spectrum Shift: Connecting User-Item Interaction with Graph-Structured Side Information",
+  "venue": "KDD 2025",
+  "doi": "10.1145/3711896.3736885",
+  "repository": "https://github.com/yhhe2004/SSC-KDD",
+  "read_files": [
+    {"url":"https://raw.githubusercontent.com/yhhe2004/SSC-KDD/main/code/LightGCN-augment/main.py","sha256":"721a9943eabd67e6f67cbd3864465c02d041f4f3e397842b8d7179e8fcb57169"},
+    {"url":"https://raw.githubusercontent.com/yhhe2004/SSC-KDD/main/code/LightGCN-augment/augment_graph.py","sha256":"7ac55c63867e108faa597f8576e82371d021b545a47aa303fe78e5fe1a40deed"}
+  ],
+  "cache": "D:\\CoLaKGSetup\\joint-graph-review-20261031-120301-9495ad",
+  "source_commit": "not resolved; GitHub API rate-limited and git ls-remote network unavailable; exact read file SHA recorded",
+  "external_code_executed": false,
+  "other_primary_reading": [
+    {"url":"https://arxiv.org/html/2505.00552v1","method":"ChebyCF","venue":"SIGIR 2025","current_decision":"uses raw history signals and handcrafted filters rather than the current retained user/item semantic input design; not implemented this round"},
+    {"url":"https://arxiv.org/html/2604.22549v1","method":"ASPIRE","venue":"2026 arXiv preprint; conference not verified","current_decision":"learned filters require a separate upper-level held-out interaction objective, incompatible with the currently fixed full-train exploration setup without a new split; not implemented this round"}
+  ],
+  "attribution": "independent task adaptation of published joint-graph spectral correction, not new SSC or a reproduction of the author environment"
+}

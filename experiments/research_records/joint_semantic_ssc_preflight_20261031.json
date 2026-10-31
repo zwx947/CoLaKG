@@ -1,0 +1,55 @@
+{
+  "success": true,
+  "optimizer_steps": 0,
+  "test_ranking_computed": false,
+  "input_sha256": {
+    "D:\\GitHub\\colakg\\CoLaKG\\data\\lastfm\\train.txt": "643619d1afd8d9bfbe536d0b9369b160bee932f69fdb59329132fcc07ade65a1",
+    "D:\\GitHub\\colakg\\CoLaKG\\data\\lastfm\\lastfm_embeddings_simcse_kg.pt": "8d826d30a8bac4a25fcde9e98dc4f7116da6fda954f05dae764de86634e64fab",
+    "D:\\GitHub\\colakg\\CoLaKG\\data\\lastfm\\lastfm_embeddings_simcse_kg_user.pt": "8ce9c4d833a9f17937478c76ccdff0ea1214b5b347e4ff2232562a63dc593215"
+  },
+  "method_config": {
+    "name": "joint_semantic_ssc",
+    "A_enabled": false,
+    "encoder": "original ID + user/item semantic Linear/ELU/dropout mean inputs; joint UI/II spectral propagation",
+    "replaced": "original one-hop item attention enhancement and pure UI propagation",
+    "effective_dropout": {
+      "item": 0.6,
+      "user": 0.2,
+      "neighbor_attention": "inactive: attention module replaced by fixed symmetric graph"
+    },
+    "layer_readout": "0..3 corrected joint graph powers, arithmetic mean",
+    "graph": {
+      "users": 1859,
+      "items": 2813,
+      "train_edges": 57786,
+      "semantic_directed_entries": 43082,
+      "joint_entries": 158654,
+      "joint_min_eigenvalue": -0.8065720147897758,
+      "joint_max_eigenvalue": 1.0,
+      "eigenpair_residual": 3.1491175664611166e-10,
+      "shift_mu": 0.0967139926051121,
+      "shift_delta": 0.9032860073948878,
+      "correction_min_eigenvalue": -1.0,
+      "correction_max_eigenvalue": 1.0,
+      "graph_source": "binary train UI + symmetric union of original fixed top10 II; each raw edge weight 1",
+      "graph_estimation_labels": "train only, no test labels or fitted recommendation checkpoints"
+    },
+    "extra_loss": false,
+    "source": "SSC KDD2025; automatic exact endpoint correction, one actual LLM semantic source",
+    "differences_from_author": "retain CoLaKG user/item semantic maps and original six-vector regularizer/initialization; use original non-PCA top10; original sigmoid-dot eval; no freerec/PyG",
+    "limitation": "exact range correction does not prove optimal filter or preserve all informative frequencies"
+  },
+  "train_bpr": 0.6386736035346985,
+  "eval_bpr": 0.6404812335968018,
+  "weighted_regularizer": 0.0006968394736759365,
+  "gradient_norms": {
+    "embedding_user.weight": 0.002071640221402049,
+    "embedding_item.weight": 0.0019412725232541561,
+    "semantic_map.weight": 0.30185195803642273,
+    "semantic_map.bias": 0.025087496265769005,
+    "user_semantic_map.weight": 0.6139888763427734,
+    "user_semantic_map.bias": 0.04499806463718414
+  },
+  "eval_item_norm_mean": 0.5862916111946106,
+  "parameters": 430208
+}
