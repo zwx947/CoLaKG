@@ -1,0 +1,72 @@
+{
+  "success": true,
+  "optimizer_steps": 1,
+  "auxiliary_loss": 7.795865058898926,
+  "weighted_aux_gradient_to_bpr_ratio": 0.06638228893280029,
+  "aux_bpr_gradient_cosine": 0.07911498099565506,
+  "step_seconds": 2.6460732999999994,
+  "peak_allocated_bytes": 91567104,
+  "test_ranking_computed": false,
+  "input_sha256": {
+    "D:\\GitHub\\colakg\\CoLaKG\\data\\lastfm\\train.txt": "643619d1afd8d9bfbe536d0b9369b160bee932f69fdb59329132fcc07ade65a1",
+    "D:\\GitHub\\colakg\\CoLaKG\\data\\lastfm\\lastfm_embeddings_simcse_kg.pt": "8d826d30a8bac4a25fcde9e98dc4f7116da6fda954f05dae764de86634e64fab",
+    "D:\\GitHub\\colakg\\CoLaKG\\data\\lastfm\\lastfm_embeddings_simcse_kg_user.pt": "8ce9c4d833a9f17937478c76ccdff0ea1214b5b347e4ff2232562a63dc593215"
+  },
+  "method_config": {
+    "name": "semantic_history_completion",
+    "A_enabled": false,
+    "encoder": "original ID + user/item semantic Linear/ELU/dropout mean inputs; joint UI/II spectral propagation",
+    "replaced": "original one-hop item attention enhancement and pure UI propagation",
+    "effective_dropout": {
+      "item": 0.6,
+      "user": 0.2,
+      "neighbor_attention": "inactive: attention module replaced by fixed symmetric graph"
+    },
+    "layer_readout": "0..3 corrected joint graph powers, arithmetic mean",
+    "graph": {
+      "users": 1859,
+      "items": 2813,
+      "train_edges": 57786,
+      "semantic_directed_entries": 43082,
+      "joint_entries": 158654,
+      "joint_min_eigenvalue": -0.8065720147897758,
+      "joint_max_eigenvalue": 1.0,
+      "eigenpair_residual": 3.1491175664611166e-10,
+      "shift_mu": 0.0967139926051121,
+      "shift_delta": 0.9032860073948878,
+      "correction_min_eigenvalue": -1.0,
+      "correction_max_eigenvalue": 1.0,
+      "graph_source": "binary train UI + symmetric union of original fixed top10 II; each raw edge weight 1",
+      "graph_estimation_labels": "train only, no test labels or fitted recommendation checkpoints"
+    },
+    "extra_loss": "train-only masked-history multi-positive CE, semantic_map encoder and transpose tied decoder",
+    "source": "SSC KDD2025; automatic exact endpoint correction, one actual LLM semantic source",
+    "differences_from_author": "retain CoLaKG user/item semantic maps and original six-vector regularizer/initialization; use original non-PCA top10; original sigmoid-dot eval; no freerec/PyG",
+    "limitation": "exact range correction does not prove optimal filter or preserve all informative frequencies",
+    "parent_commit": "393d7cbc5d41fdc76e26ede2e2574fd3c85cf102",
+    "completion": {
+      "mask_fraction": 0.2,
+      "temperature": 0.2,
+      "weight": 0.01,
+      "users_per_step": 64,
+      "sampling_seed": 2020201,
+      "targets": "fixed unit semantics minus catalog mean, renormalized",
+      "inference": "unchanged joint SSC",
+      "private_predictor": false,
+      "extra_parameters": 0
+    }
+  },
+  "train_bpr": 0.6383354663848877,
+  "eval_bpr": 0.4886855185031891,
+  "weighted_regularizer": 0.0006968395318835974,
+  "gradient_norms": {
+    "embedding_user.weight": 0.002057298319414258,
+    "embedding_item.weight": 0.0019366679480299354,
+    "semantic_map.weight": 0.31147465109825134,
+    "semantic_map.bias": 0.025728540495038033,
+    "user_semantic_map.weight": 0.6211413145065308,
+    "user_semantic_map.bias": 0.045576389878988266
+  },
+  "eval_item_norm_mean": 1.4012705087661743,
+  "parameters": 430208
+}

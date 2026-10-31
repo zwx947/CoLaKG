@@ -1,0 +1,47 @@
+{
+  "kind": "design_only_readonly_cpu",
+  "directory": "D:\\CoLaKGExperiments\\semantic-history-design-20261101-003933-7312d4",
+  "test_read": false,
+  "checkpoint_loaded": false,
+  "training": false,
+  "train_sha256": "643619d1afd8d9bfbe536d0b9369b160bee932f69fdb59329132fcc07ade65a1",
+  "semantic_sha256": "8d826d30a8bac4a25fcde9e98dc4f7116da6fda954f05dae764de86634e64fab",
+  "users": 1859,
+  "unique_train_interactions": 57786,
+  "history_quantiles": [
+    4.0,
+    27.0,
+    33.0,
+    37.0,
+    40.0
+  ],
+  "eligible_users": 1859,
+  "single_item_users": 0,
+  "asset_shape": [
+    2813,
+    1024
+  ],
+  "finite": true,
+  "zero_norm_rows": 0,
+  "norm_quantiles": [
+    13.639275550842285,
+    14.414957046508789,
+    15.16237735748291
+  ],
+  "random_pair_cosine_quantiles": [
+    -0.12307053059339523,
+    0.5405073165893555,
+    0.6158447861671448,
+    0.6931293606758118,
+    0.9039321541786194
+  ],
+  "nearest_other_cosine_quantiles": [
+    0.6811751127243042,
+    0.8772926330566406,
+    0.9227771759033203,
+    0.9862197637557983
+  ],
+  "rows_nearest_cosine_ge_09999": 0,
+  "exact_duplicate_rows": 0,
+  "caveat": "Semantic distinctness is not evidence that history completion improves recommendation; sampled random pair quantiles are descriptive only."
+}
