@@ -1,0 +1,338 @@
+{
+  "date": "2026-11-01",
+  "method_implementations": 32,
+  "trained_method_directions": 31,
+  "cancelled_before_full_budget": 1,
+  "full_test_positive_directions": 4,
+  "counts_are_not_independent_full_runs": true,
+  "rows": [
+    {
+      "method": "semantic_history_completion",
+      "name": "联合图＋行为监督语义历史补全",
+      "category": "语义表示训练；组合含联合图传播",
+      "origin": "固定联合图SSC",
+      "budget": "2000轮原test",
+      "status": "完整测试正向",
+      "result": "N20=0.35021913，原始+0.8306%；父模型+0.5434%；R20=0.38414086，原始+1.9299%",
+      "branch": "codex/b-semantic-history-completion"
+    },
+    {
+      "method": "joint_semantic_ssc",
+      "name": "语义—协同联合图＋频谱校正",
+      "category": "知识/协同关系联合传播",
+      "origin": "原始模型（复用公共启动基础）",
+      "budget": "2000轮原test",
+      "status": "完整测试正向",
+      "result": "N20=0.34832648，+0.2857%；R20=0.38199087，+1.3594%",
+      "branch": "codex/b-joint-semantic-ssc"
+    },
+    {
+      "method": "pair_geometry",
+      "name": "早期A：表示几何辅助",
+      "category": "表示学习目标",
+      "origin": "原始模型",
+      "budget": "2000轮原test及协议补跑",
+      "status": "完整测试正向",
+      "result": "400最佳N20=0.34870226，+0.3939%；401最佳=0.34895720，+0.4673%；旧1.82%仅终点比较",
+      "branch": "codex/pair-geometry"
+    },
+    {
+      "method": "asymmetric_semantic_attention",
+      "name": "非对称语义邻居注意力",
+      "category": "语义邻居选择与聚合",
+      "origin": "原始模型的动态注意力路线",
+      "budget": "2000轮原test",
+      "status": "完整测试微幅正向",
+      "result": "N20=0.34764902，+0.0906%；R20=0.38110928，+1.1255%",
+      "branch": "codex/b-asymmetric-semantic-attention"
+    },
+    {
+      "method": "dynamic_semantic_attention",
+      "name": "共享投影的中心条件语义注意力",
+      "category": "语义邻居选择与聚合",
+      "origin": "原始模型",
+      "budget": "2000轮原test",
+      "status": "完整测试未提升",
+      "result": "N20=0.34718983，-0.0416%",
+      "branch": "codex/b-dynamic-semantic-attention"
+    },
+    {
+      "method": "content_neighbor_fusion",
+      "name": "中心—邻居逐维门控融合",
+      "category": "语义消息融合",
+      "origin": "非对称注意力",
+      "budget": "2000轮原test",
+      "status": "完整测试未提升",
+      "result": "N20=0.34251387，-1.3878%",
+      "branch": "codex/b-content-neighbor-fusion"
+    },
+    {
+      "method": "calibrated_neighbor_fusion",
+      "name": "条件消息转换＋尺度校准融合",
+      "category": "语义消息转换与融合",
+      "origin": "非对称注意力",
+      "budget": "2000轮原test",
+      "status": "完整测试未提升",
+      "result": "N20=0.31710851，-8.7022%",
+      "branch": "codex/b-calibrated-neighbor-fusion"
+    },
+    {
+      "method": "behavior_semantic_graph",
+      "name": "行为引导语义物品图",
+      "category": "语义适配与图传播",
+      "origin": "原始模型框架替换",
+      "budget": "2000轮原test",
+      "status": "完整测试未提升",
+      "result": "N20=0.33235759，-4.3119%",
+      "branch": "codex/b-behavior-semantic-graph"
+    },
+    {
+      "method": "target_history_attention",
+      "name": "候选感知历史匹配",
+      "category": "偏好匹配与最终评分",
+      "origin": "原始模型",
+      "budget": "2000轮原test",
+      "status": "完整测试未提升",
+      "result": "N20=0.33395655，-3.8515%",
+      "branch": "codex/b-target-history-attention"
+    },
+    {
+      "method": "top20_catalog_ranking",
+      "name": "Top20截断感知目录排序辅助",
+      "category": "排序训练目标",
+      "origin": "原始模型",
+      "budget": "2000轮原test",
+      "status": "完整测试未提升",
+      "result": "N20=0.33913968，-2.3592%",
+      "branch": "codex/b-top20-catalog-ranking"
+    },
+    {
+      "method": "factor_routed_joint",
+      "name": "四通道联合图关系路由",
+      "category": "关系学习与图传播",
+      "origin": "联合图结构；同时取消固定SSC",
+      "budget": "2000轮原test",
+      "status": "完整测试未提升",
+      "result": "N20=0.33728516，-2.8932%",
+      "branch": "codex/b-factor-routed-joint"
+    },
+    {
+      "method": "layer_mixture",
+      "name": "A＋可学习层组合",
+      "category": "图传播层读出",
+      "origin": "固定A",
+      "budget": "2000轮原test",
+      "status": "完整测试未提升",
+      "result": "N20=0.34025835，未超过A或原始",
+      "branch": "codex/b-layer-mixture"
+    },
+    {
+      "method": "a_confidence_geometry",
+      "name": "强化A：置信筛选几何对齐",
+      "category": "表示学习目标",
+      "origin": "固定A",
+      "budget": "2000轮开发验证",
+      "status": "开发验证未提升",
+      "result": "验证N20=0.27247387，对A -0.3432%",
+      "branch": "codex/a-confidence-alignment"
+    },
+    {
+      "method": "a_geometry_primary",
+      "name": "强化A：几何目标替代BPR",
+      "category": "主训练目标",
+      "origin": "固定A",
+      "budget": "2000轮开发验证",
+      "status": "开发验证未提升",
+      "result": "验证N20=0.24069476，对A -11.9663%",
+      "branch": "codex/a-geometry-primary"
+    },
+    {
+      "method": "topk_boundary",
+      "name": "排名边界驱动UI消息传播",
+      "category": "排序驱动的图传播",
+      "origin": "原始模型",
+      "budget": "2000轮开发验证",
+      "status": "开发验证未提升",
+      "result": "验证N20=0.27690439，对原始 -0.1300%",
+      "branch": "codex/b-topk-boundary"
+    },
+    {
+      "method": "source_aware_fusion",
+      "name": "来源条件化ID/语义融合",
+      "category": "语义—协同输入融合",
+      "origin": "原始模型",
+      "budget": "2000轮开发验证",
+      "status": "开发验证未提升",
+      "result": "验证N20=0.26384990，对原始 -4.8383%",
+      "branch": "codex/b-source-aware-fusion"
+    },
+    {
+      "method": "decoupled_semantic_routing",
+      "name": "协同/语义分路编码与拼接",
+      "category": "双路表示与评分",
+      "origin": "原始模型",
+      "budget": "2000轮开发验证",
+      "status": "开发验证未提升",
+      "result": "验证N20=0.25404545，对原始 -8.3744%",
+      "branch": "codex/b-decoupled-semantic-routing"
+    },
+    {
+      "method": "semantic_hypergraph",
+      "name": "用户/物品群体超图联合框架",
+      "category": "群体传播＋跨视图学习",
+      "origin": "原始模型",
+      "budget": "2000轮开发验证",
+      "status": "开发验证未提升",
+      "result": "验证N20=0.26916490，对原始 -2.9213%",
+      "branch": "codex/b-semantic-hypergraph"
+    },
+    {
+      "method": "degree_fusion",
+      "name": "A＋度数条件融合",
+      "category": "语义—协同输入融合",
+      "origin": "固定A",
+      "budget": "200轮开发验证",
+      "status": "短预算证据",
+      "result": "未通过当时短预算门槛",
+      "branch": "codex/b-degree-fusion"
+    },
+    {
+      "method": "cross_residual",
+      "name": "A＋ID/语义交叉残差",
+      "category": "语义—协同交互融合",
+      "origin": "固定A",
+      "budget": "200轮开发验证",
+      "status": "短预算证据",
+      "result": "短预算未改善",
+      "branch": "codex/b-cross-residual"
+    },
+    {
+      "method": "context_negative_mix",
+      "name": "A＋历史条件难负样本合成",
+      "category": "负采样",
+      "origin": "固定A",
+      "budget": "200轮开发验证",
+      "status": "短预算证据",
+      "result": "短预算未改善",
+      "branch": "codex/b-context-negative-mix"
+    },
+    {
+      "method": "collaborative_rank_residual",
+      "name": "A＋共享ID的协同排序残差",
+      "category": "多分支评分",
+      "origin": "固定A",
+      "budget": "200轮开发验证",
+      "status": "短预算证据",
+      "result": "短预算未改善",
+      "branch": "codex/b-collaborative-rank-residual"
+    },
+    {
+      "method": "private_cf_rank",
+      "name": "A＋独立ID协同排序分支",
+      "category": "多分支评分",
+      "origin": "固定A",
+      "budget": "200轮开发验证",
+      "status": "短预算证据",
+      "result": "短预算未改善",
+      "branch": "codex/b-private-cf-rank"
+    },
+    {
+      "method": "gradient_priority",
+      "name": "A＋目标梯度协调",
+      "category": "优化策略",
+      "origin": "固定A",
+      "budget": "200轮开发验证",
+      "status": "短预算证据",
+      "result": "小幅变化，未达当时推进门槛",
+      "branch": "codex/b-gradient-priority"
+    },
+    {
+      "method": "gradient_id_routing",
+      "name": "A＋ID梯度路由",
+      "category": "优化策略",
+      "origin": "固定A",
+      "budget": "200轮开发验证",
+      "status": "短预算证据",
+      "result": "未通过当时短预算门槛",
+      "branch": "codex/b-gradient-id-routing"
+    },
+    {
+      "method": "propagation_rms",
+      "name": "A＋分类型/通道传播幅度校正",
+      "category": "图传播尺度",
+      "origin": "固定A",
+      "budget": "200轮三种子；2020延长至1000轮开发验证",
+      "status": "短预算证据",
+      "result": "短跑曾积极，1000轮未超过配对A；无2000轮结论",
+      "branch": "codex/b-propagation-rms"
+    },
+    {
+      "method": "cavity_propagation",
+      "name": "A＋抑制立即回返传播",
+      "category": "图传播路径",
+      "origin": "固定A",
+      "budget": "200轮开发验证",
+      "status": "短预算证据",
+      "result": "未通过当时短预算门槛",
+      "branch": "codex/b-cavity-propagation"
+    },
+    {
+      "method": "catalog_contrastive",
+      "name": "目录级对比辅助",
+      "category": "排序/表示辅助目标",
+      "origin": "原始模型",
+      "budget": "200轮三种子开发验证",
+      "status": "短预算证据",
+      "result": "末三次验证均值曾+0.39%～+0.58%；无完整原test结论",
+      "branch": "research/catalog-contrastive"
+    },
+    {
+      "method": "consensus_residual",
+      "name": "共识邻居与协同残差",
+      "category": "邻居增强与协同融合",
+      "origin": "原始模型",
+      "budget": "200轮开发验证",
+      "status": "短预算证据",
+      "result": "末三次验证均值约-0.51%",
+      "branch": "research/consensus-residual"
+    },
+    {
+      "method": "semantic_graph_decoder",
+      "name": "独立语义图评分框架",
+      "category": "图编码与评分",
+      "origin": "原始模型",
+      "budget": "200轮开发验证",
+      "status": "短预算证据",
+      "result": "末三次验证均值约-1.66%",
+      "branch": "research/semantic-graph-decoder"
+    },
+    {
+      "method": "aligned_catalog",
+      "name": "余弦目录目标替换BPR",
+      "category": "排序目标与评分一致性",
+      "origin": "原始模型",
+      "budget": "200轮开发验证",
+      "status": "短预算证据",
+      "result": "末三次验证均值约-6.94%",
+      "branch": "research/aligned-catalog"
+    },
+    {
+      "method": "joint_bounded_spectral",
+      "name": "联合图有界谱滤波",
+      "category": "传播滤波",
+      "origin": "固定联合图SSC",
+      "budget": "89轮；用户取消",
+      "status": "未完成，不作性能判断",
+      "result": "用户认为投入价值不足而停止，非依据性能淘汰",
+      "branch": "codex/b-joint-bounded-spectral"
+    }
+  ],
+  "original_audit_commit": "5de8c40",
+  "latest_result_commit": "3767857d11c9d29b1c7e589752c9b102f5ad442a",
+  "exclusions": [
+    "原始对照/补跑/种子/诊断/启动器修复不重复计数",
+    "pair_alignment_only为组件消融",
+    "师姐参考组合误启动56轮后撤回，不作为有效研究候选",
+    "文献审查但未训练的扩散图新增连接等不计实验失败"
+  ]
+}
